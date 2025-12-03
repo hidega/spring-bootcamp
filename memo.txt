@@ -1,4 +1,0 @@
-* 2025-10-15
-  git clone git@github.com:hidega/spring-bootcamp.git
-
-
