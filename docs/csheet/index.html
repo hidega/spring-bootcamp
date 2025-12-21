@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Home Page</title>
+    <link href="http://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="styles.css" type="text/css"/>
+    <script type="text/javascript" src="csheet.js"></script>
+  </head>
+  <body>
+    <div class="cs-bg">
+      <div class="cs-chapter" data-chapter-name="java">
+        <div class="cs-title">Java</div>
+        <div data-tags="memory stack heap" class="cs-paragraph" id="cs-java-memory">
+          <div class="cs-title">Memory areas allocated by JVM</div>
+          <div class="cs-text">
+            <i>classloader</i> is a component of JVM used to load class files.<br/>
+            <i>class method area</i> stores per-class structures such as the runtime constant pool, field and 
+                                     method data, and the code for methods.<br/>
+            <i>heap</i> is created a runtime and it contains the runtime data area in which objects are allocated.<br/>
+            <i>stack</i> stores local variables and partial results at runtime. 
+                         Each <span class="cs-link" data-ref="cs-java-thread">thread</span> 
+                         creates a private JVM stack at the time of thread creation.<br/>
+            <i>native method stack</i> is reserved for all the native methods used in the application.
+          </div>
+        </div>
+        <div data-tags="classloader" class="cs-paragraph" id="cs-java-classloader">
+          <div class="cs-title">How do classloaders work</div>
+          <div class="cs-text">
+            Classloader is a class that is used to load files in JVM. It loads files from their 
+            physical file locations e.g. Filesystem, Network location etc. There are three main types of classloaders 
+            in Java.<br/> 
+            <i>bootstrap classloader</i> is the first classloader, it loads classes from <span class="cs-pre">rt.jar</span> file.<br/>
+            <i>extension classloader</i> loads class files from jre/lib/ext location.<br/>
+            <i>application classloader</i> on CLASSPATH to find the location of class files.<br/> 
+          </div>
+        </div>
+        <div data-tags="thread" class="cs-paragraph" id="cs-java-thread">
+          <div class="cs-title">What is a Thread</div>
+          <div class="cs-text">
+            A thread in Java is a lightweight process that runs within another process or thread. It is an independent 
+            path of execution in an application. JVM gives each thread its own method-call stack. When we start 
+            JVM, Java starts one thread. This thread calls the main method of the class passed in argument to java call.
+            Java 25 introduces virtual threads.
+          </div>
+        </div>  
+      </div>
+    </div>
+  </body>
+</html>

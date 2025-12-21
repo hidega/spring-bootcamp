@@ -1,0 +1,55 @@
+:root {
+  --base-font-size: 16px;
+}
+body, html {
+  height: 100%; 
+  width: 100%;
+  margin: 0;
+  background-color: #f8f8f8;
+  padding: 0;
+  font-family: "Roboto";
+  font-size: var(--base-font-size);
+}
+.cs-bg {
+  height: 100%; 
+  width: 100%;
+  padding: calc(var(--base-font-size) / 4);
+}
+.cs-chapter {
+  padding: calc(var(--base-font-size) / 2);
+}
+.cs-chapter .cs-title {
+  margin-top: calc(var(--base-font-size) / 8);
+  font-size: 1.8rem;
+}
+.cs-paragraph {
+  padding: calc(var(--base-font-size) / 2);
+}
+.cs-paragraph .cs-title {  
+  font-size: 1.3rem;
+  padding-bottom: calc(var(--base-font-size) / 4);
+}
+.cs-paragraph .cs-text i {
+  letter-spacing: 0.15rem;
+}
+.cs-paragraph .cs-text i::after {
+  white-space: pre;
+  content: " ";
+}
+.cs-link {
+  text-decoration: underline dashed;
+  cursor: pointer;
+} 
+.cs-pre {
+  font-family: monospace;
+  font-size: 0.9rem;
+} 
+.cs-pre::before {
+  white-space: pre;
+  content: " ";
+}
+.cs-pre::after {
+  white-space: pre;
+  content: " ";
+}
+
