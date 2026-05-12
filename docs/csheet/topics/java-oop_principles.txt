@@ -1,0 +1,7 @@
+Java
+The main principles of OOP
+oop principles
+<i>encapsulation</i> means bundling data and its related methods into a single unit.<br/>
+<i>inheritance</i> means that one class inherits properties and methods from another class.<br/>
+<i>polymorphism</i> means that the same method can be implemented differently in different classes.<br/>
+<i>abstraction</i> means simplifying complex systems, showing only essential details.

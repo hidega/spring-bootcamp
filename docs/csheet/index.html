@@ -9,6 +9,44 @@
   </head>
   <body>
     <div class="cs-bg">
+
+<div class="cs-bg"><div class="cs-chapter" data-chapter-name="Example Chapter"><div class="cs-title">Example Chapter</div><div data-tags="exampletag1 exampletag2" class="cs-paragraph" id="Example_Chapter-Example_Topic"><div class="cs-title">Example Topic</div><div class="cs-text">
+<i>example</i> text </div></div>
+</div>
+<div class="cs-chapter" data-chapter-name="Java"><div class="cs-title">Java</div><div data-tags="classloader" class="cs-paragraph" id="Java-Classloader"><div class="cs-title">Classloader</div><div class="cs-text">
+Classloader is a class that is used to load files in JVM. It loads files from their
+physical file locations e.g. filesystem, network location etc. There are three main types of classloaders.<br/>
+<i>bootstrap classloader</i> is the first classloader, it loads classes from <span class="cs-pre">rt.jar</span> file.<br/>
+<i>extension classloader</i> loads class files from jre/lib/ext location.<br/>
+<i>application classloader</i> on CLASSPATH to find the location of class files.<br/>
+</div></div>
+<div data-tags="memory stack heap" class="cs-paragraph" id="Java-Memory"><div class="cs-title">Memory</div><div class="cs-text">
+<i>classloader</i> is a component of JVM used to load class files.<br/>
+<i>class method area</i> stores per-class structures such as the runtime constant pool, field and
+method data, and the code for methods.<br/>
+<i>heap</i> is created a runtime and it contains the runtime data area in which objects are allocated.
+The string pool is a part of the heap.<br/>
+<i>stack</i> stores local variables and partial results at runtime.
+Each <span class="cs-link" data-ref="cs-java-thread">thread</span>
+creates a private JVM stack at the time of thread creation.<br/>
+<i>native method stack</i> is reserved for all the native methods used in the application.
+</div></div>
+<div data-tags="oop principles" class="cs-paragraph" id="Java-The_main_principles_of_OOP"><div class="cs-title">The main principles of OOP</div><div class="cs-text">
+<i>encapsulation</i> means bundling data and its related methods into a single unit.<br/>
+<i>inheritance</i> means that one class inherits properties and methods from another class.<br/>
+<i>polymorphism</i> means that the same method can be implemented differently in different classes.<br/>
+<i>abstraction</i> means simplifying complex systems, showing only essential details.
+</div></div>
+<div data-tags="thread" class="cs-paragraph" id="Java-What_is_a_thread"><div class="cs-title">What is a thread</div><div class="cs-text">
+A thread in Java is a lightweight process that runs within another process. There are two types of threads.
+<i>native threads</i> (aka. platform threads) are managed and scheduled by the operating system,
+whereas <i>virtual threads</i> are managed and scheduled by the JVM.
+Each thread has its own method-call stack. When we start JVM, Java starts one thread.
+This thread calls the main method of the class passed in argument to java call.
+</div></div>
+</div>
+</div>
+
     </div>
   </body>
 </html>
