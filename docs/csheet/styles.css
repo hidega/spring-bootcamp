@@ -36,6 +36,10 @@ body, html {
   white-space: pre;
   content: " ";
 }
+.cs-paragraph .cs-text i::before {
+  white-space: pre;
+  content: " ";
+}
 .cs-link {
   text-decoration: underline dashed;
   cursor: pointer;
@@ -51,5 +55,8 @@ body, html {
 .cs-pre::after {
   white-space: pre;
   content: " ";
+}
+.cs-paragraph .cs-text pre {
+  font-size: 0.85rem;
 }
 

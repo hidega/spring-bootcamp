@@ -1,0 +1,305 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>CSheet</title>
+    <link href="http://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="styles.css" type="text/css"/>
+    <script type="text/javascript" src="csheet.js"></script>
+  </head>
+  <body>
+    <div class="cs-bg">
+      <div class="cs-chapter" data-chapter-name="java">
+        <div class="cs-title">Java</div>
+        <div data-tags="memory stack heap" class="cs-paragraph" id="cs-java-memory">
+          <div class="cs-title">Memory areas allocated by JVM</div>
+          <div class="cs-text">
+            <i>classloader</i> is a component of JVM used to load class files.<br/>
+            <i>class method area</i> stores per-class structures such as the runtime constant pool, field and
+            method data, and the code for methods.<br/>
+            <i>heap</i> is created a runtime and it contains the runtime data area in which objects are allocated.
+            The string pool is a part of the heap.<br/>
+            <i>stack</i> stores local variables and partial results at runtime.
+            Each <span class="cs-link" data-ref="cs-java-thread">thread</span>
+            creates a private JVM stack at the time of thread creation.<br/>
+            <i>native method stack</i> is reserved for all the native methods used in the application.
+          </div>
+        </div>
+        <div data-tags="classloader" class="cs-paragraph" id="cs-java-classloader">
+          <div class="cs-title">How do classloaders work</div>
+          <div class="cs-text">
+            Classloader is a class that is used to load files in JVM. It loads files from their
+            physical file locations e.g. filesystem, network location etc. There are three main types of classloaders.<br/>
+            <i>bootstrap classloader</i> is the first classloader, it loads classes from <span class="cs-pre">rt.jar</span> file.<br/>
+            <i>extension classloader</i> loads class files from jre/lib/ext location.<br/>
+            <i>application classloader</i> on CLASSPATH to find the location of class files.<br/>
+          </div>
+        </div>
+        <div data-tags="thread" class="cs-paragraph" id="cs-java-thread">
+          <div class="cs-title">What is a thread</div>
+          <div class="cs-text">
+            A thread in Java is a lightweight process that runs within another process. There are two types of threads.
+            <i>native threads</i> (aka. platform threads) are managed and scheduled by the operating system,
+            whereas <i>virtual threads</i> are managed and scheduled by the JVM.
+            Each thread has its own method-call stack. When we start JVM, Java starts one thread.
+            This thread calls the main method of the class passed in argument to java call.
+          </div>
+        </div>
+        <div data-tags="oop principles" class="cs-paragraph" id="cs-java-oop">
+          <div class="cs-title">The main principles of object oriented programming</div>
+          <div class="cs-text">
+            <i>encapsulation</i> means bundling data and its related methods into a single unit.<br/>
+            <i>inheritance</i> means that one class inherits properties and methods from another class.<br/>
+            <i>polymorphism</i> means that the same method can be implemented differently in different classes.<br/>
+            <i>abstraction</i> means simplifying complex systems, showing only essential details.
+          </div>
+        </div>
+        <div data-tags="oop java" class="cs-paragraph" id="cs-java-oop-impl">
+          <div class="cs-title">How is OOP achieved in Java</div>
+          <div class="cs-text">
+            encapsulation: private and protected visibility, getter and setter methods.<br/>
+            inheritance: class and interface inheritance.<br/>
+            polymorphism: method overloading and overriding.<br/>
+            abstraction: abstract classes and interfaces.
+          </div>
+        </div>
+        <div data-tags="polymorphism java" class="cs-paragraph" id="cs-java-polymorphism">
+          <div class="cs-title">Polymorphism in Java</div>
+          <div class="cs-text">
+            In Java, method overloading means that a class can have multiple methods with same name but different arguments.
+            To override a method, we just provide a new implementation of a method with same name in a subclass.
+            Java does not allow overriding a static method. If you create a static method with same name in subclass,
+            then it is a new method, not an overridden method (to override a method, you need an instance of a class).<br/>
+            <i>runtime polymorphism</i> (or dynamic polymorphism) is the case when method overriding occurs but it is
+            not known which method will be called at runtime. Based on the type of object, JVM decides the exact method that should be called.
+            We create runtime polymorphism by implementing methods at two levels of inheritance in Java.
+          </div>
+        </div>
+        <div data-tags="initializer execution constructor order" class="cs-paragraph" id="cs-java-init-order">
+          <div class="cs-title">The order of execution of initializer code blocks</div>
+          <div class="cs-text">
+            (1) static blocks of super classes<br/>
+            (2) static blocks of the class<br/>
+            (3) init blocks of super classes<br/>
+            (4) constructors of super classes<br/>
+            (5) init blocks of the class<br/>
+            (6) constructors of the class
+          </div>
+        </div>
+        <div data-tags="static dynamic binding" class="cs-paragraph" id="cs-java-static-dynamic-binding">
+          <div class="cs-title">The difference between static and dynamic binding</div>
+          <div class="cs-text">
+            In static binding references are resolved at compile time. In dynamic binding references are resolved 
+            at runtime. E.g. <br/>
+            <pre>
+            Person p = new Person();
+            p.walk(); // Java compiler resolves this binding at compile time.
+            public void walk(Object o) {
+              ((Person) o).walk(); // this is dynamic binding.
+            }</pre>
+          </div>
+        </div>
+        <div data-tags="gc garbage collector" class="cs-paragraph" id="cs-java-gc">
+          <div class="cs-title">How Garbage Collection works in Java</div>
+          <div class="cs-text">
+            Java has an automated process called Garbage Collector for memory management. It is a daemon in JVM 
+            that monitors memory usage and performs memory cleanup. Once the JVM is low on memory, the GC process finds 
+            the unused objects that are not referenced by other objects, then these unused objects are cleaned up by 
+            Garbage Collector daemon in JVM.<br/>
+            An object can be garbage collected if it is not reachable. There are two cases for deciding 
+            eligibility of objects for Garbage Collection. (i) when an object instance that cannot be reached by a live 
+            thread, (ii) or a set of circularly referenced instances that cannot be reached by any other instance outside 
+            that set.
+          </div>
+        </div>
+        <div data-tags="immutable string" class="cs-paragraph" id="cs-java-immutable-string">
+          <div class="cs-title">Strings are immutable</div>
+          <div class="cs-text">
+            Security:  Because String is immutable, these values can’t be changed.<br/>
+            Multi-threading: Since Strings are immutable, they are are implicitly thread-safe.<br/>
+            Caching: Since string is immutable, the hashcode will remain the same, so it can be cached without 
+            worrying about the changes.<br/> 
+            String Pooling is possible because String is Immutable in Java. If the string is already 
+            present in the pool, then instead of creating a new object, old object’s reference is returned. 
+            This way different String variables can refer to the same reference in the pool, thus saving a lot of heap 
+            space also. 
+          </div>
+        </div>
+        <div data-tags="aggregation composition" class="cs-paragraph" id="cs-java-aggregation-composition">
+          <div class="cs-title">Aggregation and composition</div>
+          <div class="cs-text">
+            In OOPS, aggregation and composition are the types of association relations. A composition is a strong 
+            relationship. If the composite object is destroyed, then all its parts are destroyed. In aggregation, 
+            the relationship is weaker than composition. E.g. a library has students. If a library is destroyed, 
+            students still exist. So library and student are related by aggregation. A library has books. If library 
+            is destroyed, the books are also destroyed. Books of a library cannot exist without the library. So 
+            book and library are related by composition.
+          </div>
+        </div>
+        <div data-tags="references" class="cs-paragraph" id="cs-java-reference-types">
+          <div class="cs-title">Reference types in Java</div>
+          <div class="cs-text">
+            <i>strong reference</i> is the default reference type. 
+            Others are used for different GC strategies: <i>soft reference,</i> <i>weak reference,</i> <i>phantom reference</i>.
+          </div>
+        </div>
+        <div data-tags="nested inner classes" class="cs-paragraph" id="cs-java-nested-classes">
+          <div class="cs-title">Types of nested classes in Java</div>
+          <div class="cs-text">
+            Java provides four types of nested (aka inner) classes: member inner class, local inner class, 
+            anonymous inner class, static nested class.
+          </div>
+        </div>
+        <div data-tags="object methods" class="cs-paragraph" id="cs-java-object-methods">
+          <div class="cs-title">Important methods on Object</div>
+          <div class="cs-text"> 
+            <span class="cs-pre"> clone(), equals(), finalize(), getClass(), hashCode(), notify(), notifyAll(), toString(), wait()</span>
+          </div>
+        </div>
+        <div data-tags="monitor" class="cs-paragraph" id="cs-java-monitor">
+          <div class="cs-title">Monitor</div>
+          <div class="cs-text">
+            A monitor is a synchronization mechanism that allows threads to have:<br/>
+            - mutual exclusion: only one thread can execute the method at a certain point in time, using locks,<br/>
+            - cooperation: the ability to make threads wait for certain conditions to be met, using wait-set.<br/>
+            Monitors provide three main features to the concurrent programming:<br/>
+            - only one thread at a time has mutually exclusive access to a critical code section,<br/>
+            - threads running in a monitor could be blocked while they’re waiting for certain conditions to be met,<br/>
+            - one thread can notify other threads when conditions they’re waiting on are met.<br/>
+            A critical section is a part of the code that accesses the same data through different threads. In Java, 
+            we use the <span class="cs-pre">synchronized</span> keyword to mark critical sections. 
+          </div>
+        </div>
+        <div data-tags="thread states" class="cs-paragraph" id="cs-java-thread-states">
+          <div class="cs-title">States of a Thread in Java</div>
+          <div class="cs-text"> 
+            <i>New</i>: In this state the thread has not yet started. After start it will be Runnable.<br/>
+            <i>Runnable</i>: A thread is waiting for execution. The scheduler runs the thread which will be in Running state.<br/>
+            <i>Running</i>: The thread is running. By <span class="cs-pre">Thread::interrupt()</span>
+            it will be switched to Runnable state. After exit, the thread will be in Terminated state.
+            After <span class="cs-pre">Object::wait()</span>, it will be in Non Runnable state.<br/>
+            <i>Non Runnable</i>: After <span class="cs-pre">Object::notify()</span> it will be in Runnable state.<br/>
+            <i>Terminated</i>: A thread that has exited is in Terminated state.
+          </div>
+        </div>
+        <div data-tags="wakeup thread" class="cs-paragraph" id="cs-java-wakeup-thread">
+          <div class="cs-title">How to wake up a thread</div>
+          <div class="cs-text">
+            We can wake up a thread that has been put to sleep with the <span class="cs-pre">Thread.sleep()</span> method,
+            by invoking <span class="cs-pre">Thread::interrupt()</span> .
+          </div>
+        </div>
+        <div data-tags="thread wait" class="cs-paragraph" id="cs-thread-wait">
+          <div class="cs-title">The <span class="cs-pre">Thread::wait()</span> method</div>
+          <div class="cs-text">
+            Causes the current thread to wait until either another thread invokes the 
+            <span class="cs-pre">notify()</span> method or the <span class="cs-pre">notifyAll()</span> 
+            method for this object, or a specified amount of time has elapsed. The current thread must own this 
+            object's monitor. This method causes the current thread (call it T) to place itself in the wait set 
+            for this object and then to relinquish any and all synchronization claims on this object. Thread T becomes 
+            disabled for thread scheduling purposes and lies dormant until one of four things happens:<br/>
+            - Some other thread invokes the <span class="cs-pre">notify</span> method for this object and thread T happens to be arbitrarily 
+            chosen as the thread to be awakened.<br/>
+            - Some other thread invokes the <span class="cs-pre">notifyAll</span> method for this object.<br/>
+            - Some other thread interrupts thread T.<br/>
+            - The specified amount of real time has elapsed, more or less. <br/>
+            The thread T is then removed from the wait set for this object and re-enabled for thread scheduling. 
+            It then competes in the usual manner with other threads for the right to synchronize on the object; 
+            once it has gained control of the object, all its synchronization claims on the object are restored 
+            to the status quo ante - that is, to the situation as of the time that the wait method was invoked. 
+            Thread T then returns from the invocation of the wait method. Thus, on return from the wait method, 
+            the synchronization state of the object and of thread T is exactly as it was when the wait method was 
+            invoked. 
+          </div>
+        </div>
+        <div data-tags="singleton issues" class="cs-paragraph" id="cs-singleton-issues">
+          <div class="cs-title">Some problems with singleton implementations</div>
+          <div class="cs-text">
+            Reflection, cloning, serialization, thread safety.
+          </div>
+        </div>
+        <div data-tags="intrinsic lock" class="cs-paragraph" id="cs-java-intrinsic-lock">
+          <div class="cs-title">Iintrinsic locks</div>
+          <div class="cs-text">
+            An <i>intrinsic lock</i> can be accessed by the same thread multiple times. So an intrinsic lock is re-entrant. 
+            If it is not allowed, then the code that acquires a lock would have to avoid acquiring the lock that it has already acquired. 
+          </div>
+        </div>
+        <div data-tags="threadsafe singleton" class="cs-paragraph" id="cs-java-threadasfe-signleton">
+          <div class="cs-title">Threadsafe singleton class</div>
+          <div class="cs-text">
+            <pre>
+            public class A {
+              private A() {}
+              private static volatile A instance;
+              public A getInstance() {
+                A localRef = instance;
+                if (localRef == null) {
+                  synchronized (A.class) {
+                    localRef = instance;
+                    if(localRef == null) {
+                      instance = localRef = new A();
+                    }
+                  }
+                }
+                return localRef;
+              }
+            }</pre>
+          </div>
+        </div>
+        <div data-tags="nonthreadsafe class" class="cs-paragraph" id="cs-java-nonthreadsafe-class">
+          <div class="cs-title">Non-threadsafe class example</div>
+          <div class="cs-text">
+            <pre>
+            public class SingletonDoubleCheck {
+              private SingletonDoubleCheck instance = null;
+              public SingletonDoubleCheck getInstance() {
+                if (instance == null) {
+                  synchronized (SingletonDoubleCheck.class) {
+                    if (instance == null) {
+                      instance = new SingletonDoubleCheck();
+                    }
+                  }
+                }
+                return instance;
+              }
+            }</pre>            
+            This code is not thread-safe. We check the value of instance second time in the synchronized block. 
+            But the JIT compiler can rearrange the bytecode in such a way that the reference to 
+            <span class="cs-pre">SingletonDoubleCheck instance</span> will be set before the execution of constructor. 
+            Due to this the method <span class="cs-pre">getInstance()</span> will return an object that may not have 
+            been initialized properly. We can use the keyword <span class="cs-pre">volatile</span> for instance to make 
+            this threadsafe code. Any variables that is marked as <span class="cs-pre">volatile</span> will be visible 
+            to other threads only after the completion of the constructor of the object. 
+          </div>
+        </div>
+        <div data-tags="thread notify" class="cs-paragraph" id="cs-java-thread-notify">
+          <div class="cs-title">The <span class="cs-pre">Thread::notify()</span> method</div>
+          <div class="cs-text">            
+            Wakes up a single thread that is waiting on this object's monitor. If any threads are waiting on this 
+            object, one of them is chosen to be awakened. The choice is arbitrary and occurs at the discretion of 
+            the implementation. A thread waits on an object's monitor by calling one of the wait methods.
+            The awakened thread will not be able to proceed until the current thread relinquishes the lock on this object. 
+            The awakened thread will compete in the usual manner with any other threads that might be actively 
+            competing to synchronize on this object; for example, the awakened thread enjoys no reliable privilege 
+            or disadvantage in being the next thread to lock this object.
+            This method should only be called by a thread that is the owner of this object's monitor. A thread becomes 
+            the owner of the object's monitor in one of three ways:<br/>
+            - By executing a synchronized instance method of that object.<br/>
+            - By executing the body of a synchronized statement that synchronizes on the object.<br/>
+            - For objects of type <span class="cs-pre">Class</span>, by executing a synchronized static method of that class. <br/>
+            Only one thread at a time can own an object's monitor.
+          </div>
+        </div>
+        <div data-tags="dummy" class="cs-paragraph" id="dummy">
+          <div class="cs-title">Dummy title</div>
+          <div class="cs-text">
+            Dummy text.
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+
