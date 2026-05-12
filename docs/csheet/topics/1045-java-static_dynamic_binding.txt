@@ -1,0 +1,11 @@
+Java
+Static dynamic binding
+static dynamic binding
+In static binding references are resolved at compile time. In dynamic binding references are resolved 
+at runtime. E.g. <br/>
+<pre>
+Person p = new Person();
+p.walk(); // Java compiler resolves this binding at compile time.
+public void walk(Object o) {
+  ((Person) o).walk(); // this is dynamic binding.
+}</pre>

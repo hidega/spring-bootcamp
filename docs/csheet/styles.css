@@ -1,5 +1,5 @@
 :root {
-  --base-font-size: 16px;
+  --base-font-size: 3vh;
 }
 body, html {
   height: 100%; 
@@ -9,9 +9,20 @@ body, html {
   padding: 0;
   font-family: "Roboto";
   font-size: var(--base-font-size);
+  overflow: hidden;
+  user-select: none;
 }
 .cs-bg {
   height: 100%; 
+  width: 100%;
+  padding: calc(var(--base-font-size) / 4);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.cs-textbg {
+  overflow-y: scroll; 
+  height: 75%; 
   width: 100%;
   padding: calc(var(--base-font-size) / 4);
 }
@@ -44,6 +55,9 @@ body, html {
   text-decoration: underline dashed;
   cursor: pointer;
 } 
+.cs-link:hover {
+  color: #778899;
+} 
 .cs-pre {
   font-family: monospace;
   font-size: 0.9rem;
@@ -59,4 +73,75 @@ body, html {
 .cs-paragraph .cs-text pre {
   font-size: 0.85rem;
 }
-
+.cs-keyboard {
+  height: 25%; 
+  width: 100%;
+  padding: var(--base-font-size);
+  padding-top: 0;
+  margin-top: calc(var(--base-font-size) / 8);
+  display: flex;
+  flex-direction: column;
+  font-size: calc(var(--base-font-size) * 1.6);
+}
+.cs-topkeyrow, .cs-middlekeyrow, .cs-bottomkeyrow, .cs-entryrow {
+  height: 25%; 
+  width: calc(100% - calc(var(--base-font-size) * 1.6));
+  display: flex;
+  flex-direction: row;
+} 
+.cs-keyboard .cs-key {
+  display: flex;
+  color: #f8f8f8;
+  justify-content: center;
+  box-sizing: border-box;
+  align-items: center;
+  width: 10%; 
+  border-left: calc(var(--base-font-size) / 4) solid #f8f8f8;
+  border-top: calc(var(--base-font-size) / 4) solid #f8f8f8;
+  background: #556677;
+  /*box-shadow: inset 0 0 0 calc(var(--base-font-size) / 8) #f8f8f8;*/
+}
+.cs-entryrow .cs-key {
+  background: #778899;
+}
+.cs-entryfield {
+  font-size: calc(var(--base-font-size) * 1.4);
+  width: 48%;
+  border: calc(var(--base-font-size) / 8) solid #aaaaaa; 
+  margin-top: calc(var(--base-font-size) / 4);
+  padding-left: var(--base-font-size);
+  align-items: center;
+  display: flex;
+  margin-left: 5%;
+}
+.cs-keyboard .cs-key:hover {
+  background: #99aabb;
+}
+.cs-middlekeyrow {
+  margin-left: 5%;
+}
+.cs-bottomkeyrow {
+  margin-left: 10%;
+} 
+.cs-resultspanel {
+  width: 70%;
+  font-size: calc(var(--base-font-size) * 1.4); 
+  left: 7%;
+  z-index: 100;
+  position: absolute;
+  bottom: 28%;
+  background: #f8f8f8;
+  border: calc(var(--base-font-size) / 8) solid #aaaaaa; 
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  padding-left: var(--base-font-size);
+}
+.cs-resultspanel .cs-resultentry { 
+  height: calc(var(--base-font-size) * 1.7);  
+  background: #f8f8f8;
+  width: calc(100% - var(--base-font-size));
+}
+.cs-resultspanel .cs-resultentry:hover {  
+  background: #aaaaaa;
+}

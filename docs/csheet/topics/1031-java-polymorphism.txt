@@ -1,0 +1,10 @@
+Java
+Polymorphism in Java
+polymorphism java
+In Java, method overloading means that a class can have multiple methods with same name but different arguments.
+To override a method, we just provide a new implementation of a method with same name in a subclass.
+Java does not allow overriding a static method. If you create a static method with same name in subclass,
+then it is a new method, not an overridden method (to override a method, you need an instance of a class).<br/>
+<i>runtime polymorphism</i> (or dynamic polymorphism) is the case when method overriding occurs but it is
+not known which method will be called at runtime. Based on the type of object, JVM decides the exact method that should be called.
+We create runtime polymorphism by implementing methods at two levels of inheritance in Java.

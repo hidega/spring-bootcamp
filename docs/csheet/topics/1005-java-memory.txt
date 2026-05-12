@@ -7,6 +7,6 @@ method data, and the code for methods.<br/>
 <i>heap</i> is created a runtime and it contains the runtime data area in which objects are allocated.
 The string pool is a part of the heap.<br/>
 <i>stack</i> stores local variables and partial results at runtime.
-Each <span class="cs-link" data-ref="cs-java-thread">thread</span>
+Each <span class="cs-link" data-ref="java-thread">thread</span>
 creates a private JVM stack at the time of thread creation.<br/>
 <i>native method stack</i> is reserved for all the native methods used in the application.

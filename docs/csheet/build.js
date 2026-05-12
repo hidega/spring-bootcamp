@@ -11,7 +11,7 @@ const createTopic = (s) => {
   topic.title = s.substring(first, second).trim();
   topic.tags = s.substring(second, third).trim();
   topic.text = s.substring(third);
-  topic.id = (topic.chapter + '-' + topic.title).replaceAll(' ', '_');
+  topic.id = (topic.chapter + '-' + topic.title).replaceAll(' ', '_').toLowerCase();
   return topic;
 };
 
@@ -34,16 +34,16 @@ const createDocument = (ts) => {
   return ts.reduce(addToChapter, {}); 
 };
 
-const appendTopic = (n, t, h) => h + 
-  `<div data-tags="${t.tags}" class="cs-paragraph" id="${t.id}">` +
+const appendParagraph = (n, t, h) => h + 
+  `<div data-tags="${t.tags}" class="cs-paragraph" id="${t.id}">\n` +
   `<div class="cs-title">${t.title}</div><div class="cs-text">${t.text}</div></div>\n`; 
 
 const appendChapter = (n, c, h) => h + 
-  `<div class="cs-chapter" data-chapter-name="${n}"><div class="cs-title">${n}</div>` +  
-  Object.keys(c).reduce((a, k) => appendTopic(k, c[k], a), '') + 
+  `<div class="cs-chapter" data-chapter-name="${n}"><div class="cs-title">${n}</div>\n` +  
+  Object.keys(c).reduce((a, k) => appendParagraph(k, c[k], a), '') + 
   '</div>\n';
 
-const htmlize = (d) => '<div class="cs-bg">' + 
+const htmlize = (d) => '<div class="cs-textbg" id="cs-textbg">' + 
   Object.keys(d).reduce((a, k) => appendChapter(k, d[k], a), '') + 
   '</div>\n';
 
@@ -57,17 +57,31 @@ const createHtmlPage = (c) =>
     <link rel="stylesheet" href="styles.css" type="text/css"/>
     <script type="text/javascript" src="csheet.js"></script>
   </head>
-  <body>
-    <div class="cs-bg">
+  <body> 
+    <div class="cs-bg" id="cs-bg">
 
 ${c}
+      <div class="cs-keyboard">
+        <div class="cs-entryrow">
+          <div class="cs-entryfield" id="cs-entryfield"></div><div class="cs-key">Bksp</div><div class="cs-key">Clear</div><div class="cs-key">Up</div><div class="cs-key">Down</div>
+        </div>
+        <div class="cs-topkeyrow">
+          <div class="cs-key">Q</div><div class="cs-key">W</div><div class="cs-key">E</div><div class="cs-key">R</div><div class="cs-key">T</div><div class="cs-key">Z</div><div class="cs-key">U</div><div class="cs-key">I</div><div class="cs-key">O</div><div class="cs-key">P</div>
+        </div>
+        <div class="cs-middlekeyrow">
+          <div class="cs-key">A</div><div class="cs-key">S</div><div class="cs-key">D</div><div class="cs-key">F</div><div class="cs-key">G</div><div class="cs-key">H</div><div class="cs-key">J</div><div class="cs-key">K</div><div class="cs-key">L</div>
+        </div>
+        <div class="cs-bottomkeyrow">
+          <div class="cs-key">Y</div><div class="cs-key">X</div><div class="cs-key">C</div><div class="cs-key">V</div><div class="cs-key">B</div><div class="cs-key">N</div><div class="cs-key">M</div>
+        </div>
+      </div> 
     </div>
   </body>
 </html>
 `;
 
 fs.readdir(topicsDir)
-  .then((fa) => Promise.all(fa.reduce(readFile, [])))
+  .then((fa) => Promise.all(fa.sort().reduce(readFile, [])))
   .then((bs) => bs.map((b) => createTopic(b.toString('utf-8'))))
   .then(createDocument)
   .then(htmlize)

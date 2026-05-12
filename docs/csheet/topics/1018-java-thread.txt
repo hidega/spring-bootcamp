@@ -1,5 +1,5 @@
 Java
-What is a thread
+Thread
 thread
 A thread in Java is a lightweight process that runs within another process. There are two types of threads.
 <i>native threads</i> (aka. platform threads) are managed and scheduled by the operating system,

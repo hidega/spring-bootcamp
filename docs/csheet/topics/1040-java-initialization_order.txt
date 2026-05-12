@@ -1,0 +1,9 @@
+Java
+Initialization order
+initializer execution constructor order
+(1) static blocks of super classes<br/>
+(2) static blocks of the class<br/>
+(3) init blocks of super classes<br/>
+(4) constructors of super classes<br/>
+(5) init blocks of the class<br/>
+(6) constructors of the class

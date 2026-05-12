@@ -1,0 +1,11 @@
+Java
+Garbage collection
+gc garbage collector
+Java has an automated process called Garbage Collector for memory management. It is a daemon in JVM 
+that monitors memory usage and performs memory cleanup. Once the JVM is low on memory, the GC process finds 
+the unused objects that are not referenced by other objects, then these unused objects are cleaned up by 
+Garbage Collector daemon in JVM.<br/>
+An object can be garbage collected if it is not reachable. There are two cases for deciding 
+eligibility of objects for Garbage Collection. (i) when an object instance that cannot be reached by a live 
+thread, (ii) or a set of circularly referenced instances that cannot be reached by any other instance outside 
+that set.

@@ -1,5 +1,5 @@
 Java
-The main principles of OOP
+Main OOP principles
 oop principles
 <i>encapsulation</i> means bundling data and its related methods into a single unit.<br/>
 <i>inheritance</i> means that one class inherits properties and methods from another class.<br/>

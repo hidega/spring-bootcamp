@@ -1,0 +1,7 @@
+Java
+OOP in Java
+oop java
+encapsulation: private and protected visibility, getter and setter methods.<br/>
+inheritance: class and interface inheritance.<br/>
+polymorphism: method overloading and overriding.<br/>
+abstraction: abstract classes and interfaces.
