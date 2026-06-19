@@ -41,7 +41,6 @@ const createResultEntry = (e) => {
 };
 
 const doUpdateResultsPanel = (indexResults) => {
-  console.log(indexResults);
   const resultsPanel = document.getElementById('cs-resultspanel') || displayResultsPanel();
   while (resultsPanel.firstChild) {
     resultsPanel.removeChild(resultsPanel.firstChild);

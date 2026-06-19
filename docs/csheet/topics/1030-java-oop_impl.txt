@@ -3,5 +3,5 @@ OOP in Java
 oop java
 encapsulation: private and protected visibility, getter and setter methods.<br/>
 inheritance: class and interface inheritance.<br/>
-polymorphism: method overloading and overriding.<br/>
+polymorphism: method overloading and overriding, see <span class="cs-link" data-ref="java-polymorphism_in_java">here</span>.<br/>
 abstraction: abstract classes and interfaces.

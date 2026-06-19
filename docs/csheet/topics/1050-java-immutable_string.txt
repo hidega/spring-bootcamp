@@ -1,12 +1,13 @@
 Java 
 Immutable String
 string immutable
-Security:  Because String is immutable, these values can’t be changed.<br/>
-Multi-threading: Since Strings are immutable, they are are implicitly thread-safe.<br/>
-Caching: Since string is immutable, the hashcode will remain the same, so it can be cached without 
+Benefits<br/>
+- Security: Because String is immutable, these values can’t be changed.<br/>
+- Multi-threading: Since Strings are immutable, they are are implicitly thread-safe.<br/>
+- Caching: Since string is immutable, the hashcode will remain the same, so it can be cached without 
 worrying about the changes.<br/> 
-String Pooling is possible because String is Immutable in Java. If the string is already 
+String Pooling is possible because String is immutable in Java. If the string is already 
 present in the pool, then instead of creating a new object, old object’s reference is returned. 
 This way different String variables can refer to the same reference in the pool, thus saving a lot of heap 
-space also. 
-Hashing: Immutable strings can be hash keys.
+space.
+  

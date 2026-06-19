@@ -10,24 +10,6 @@
   <body>
     <div class="cs-bg">
       <div class="cs-chapter" data-chapter-name="java">
-        <div data-tags="aggregation composition" class="cs-paragraph" id="cs-java-aggregation-composition">
-          <div class="cs-title">Aggregation and composition</div>
-          <div class="cs-text">
-            In OOPS, aggregation and composition are the types of association relations. A composition is a strong 
-            relationship. If the composite object is destroyed, then all its parts are destroyed. In aggregation, 
-            the relationship is weaker than composition. E.g. a library has students. If a library is destroyed, 
-            students still exist. So library and student are related by aggregation. A library has books. If library 
-            is destroyed, the books are also destroyed. Books of a library cannot exist without the library. So 
-            book and library are related by composition.
-          </div>
-        </div>
-        <div data-tags="references" class="cs-paragraph" id="cs-java-reference-types">
-          <div class="cs-title">Reference types in Java</div>
-          <div class="cs-text">
-            <i>strong reference</i> is the default reference type. 
-            Others are used for different GC strategies: <i>soft reference,</i> <i>weak reference,</i> <i>phantom reference</i>.
-          </div>
-        </div>
         <div data-tags="nested inner classes" class="cs-paragraph" id="cs-java-nested-classes">
           <div class="cs-title">Types of nested classes in Java</div>
           <div class="cs-text">

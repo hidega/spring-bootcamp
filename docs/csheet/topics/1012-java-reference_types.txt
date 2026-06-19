@@ -1,0 +1,6 @@
+Java 
+Java reference types
+reference soft weak phantom
+<i>strong reference</i> is the default reference type. 
+Others are used for different GC strategies: <i>soft reference,</i> <i>weak reference,</i> <i>phantom reference</i>.
+        

@@ -1,6 +1,6 @@
 Java
 Static dynamic binding
-static dynamic binding
+static dynamic binding dynamicbinding
 In static binding references are resolved at compile time. In dynamic binding references are resolved 
 at runtime. E.g. <br/>
 <pre>

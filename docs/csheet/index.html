@@ -41,6 +41,15 @@ physical file locations e.g. filesystem, network location etc. There are three m
 <i>extension classloader</i> loads class files from <code>jre/lib/ext</code> location.<br/>
 <i>application classloader</i> on CLASSPATH to find the location of class files.<br/>
 </div></div>
+<div data-tags="reference soft weak phantom" class="cs-paragraph" id="java-java_reference_types">
+<div class="cs-title">Java reference types</div><div class="cs-text">
+<i>strong reference</i> is the default reference type. 
+Others are used for different GC strategies: <i>soft reference,</i> <i>weak reference,</i> <i>phantom reference</i>.
+        </div></div>
+<div data-tags="inner nested" class="cs-paragraph" id="java-nested_class_types">
+<div class="cs-title">Nested class types</div><div class="cs-text">
+Java provides four types of nested (aka inner) classes: member inner class, local inner class, 
+anonymous inner class, static nested class. </div></div>
 <div data-tags="thread" class="cs-paragraph" id="java-thread">
 <div class="cs-title">Thread</div><div class="cs-text">
 A thread in Java is a lightweight process that runs within another process. There are two types of threads.
@@ -60,7 +69,7 @@ This thread calls the main method of the class passed in argument to java call.
 <div class="cs-title">OOP in Java</div><div class="cs-text">
 encapsulation: private and protected visibility, getter and setter methods.<br/>
 inheritance: class and interface inheritance.<br/>
-polymorphism: method overloading and overriding.<br/>
+polymorphism: method overloading and overriding, see <span class="cs-link" data-ref="java-polymorphism_in_java">here</span>.<br/>
 abstraction: abstract classes and interfaces.
 </div></div>
 <div data-tags="polymorphism java" class="cs-paragraph" id="java-polymorphism_in_java">
@@ -73,6 +82,14 @@ then it is a new method, not an overridden method (to override a method, you nee
 not known which method will be called at runtime. Based on the type of object, JVM decides the exact method that should be called.
 We create runtime polymorphism by implementing methods at two levels of inheritance in Java.
 </div></div>
+<div data-tags="aggregation composition" class="cs-paragraph" id="java-aggregtion_composition">
+<div class="cs-title">Aggregtion composition</div><div class="cs-text">
+In OOPS, aggregation and composition are the types of association relations. A composition is a strong 
+relationship. If the composite object is destroyed, then all its parts are destroyed. In aggregation, 
+the relationship is weaker than composition. E.g. a library has students. If a library is destroyed, 
+students still exist. So library and student are related by aggregation. A library has books. If library 
+is destroyed, the books are also destroyed. Books of a library cannot exist without the library. So 
+book and library are related by composition.</div></div>
 <div data-tags="initializer execution constructor order" class="cs-paragraph" id="java-initialization_order">
 <div class="cs-title">Initialization order</div><div class="cs-text">
 (1) static blocks of super classes<br/>
@@ -81,7 +98,7 @@ We create runtime polymorphism by implementing methods at two levels of inherita
 (4) constructors of super classes<br/>
 (5) init blocks of the class<br/>
 (6) constructors of the class</div></div>
-<div data-tags="static dynamic binding" class="cs-paragraph" id="java-static_dynamic_binding">
+<div data-tags="static dynamic binding dynamicbinding" class="cs-paragraph" id="java-static_dynamic_binding">
 <div class="cs-title">Static dynamic binding</div><div class="cs-text">
 In static binding references are resolved at compile time. In dynamic binding references are resolved 
 at runtime. E.g. <br/>
@@ -94,15 +111,16 @@ public void walk(Object o) {
 </div></div>
 <div data-tags="string immutable" class="cs-paragraph" id="java-immutable_string">
 <div class="cs-title">Immutable String</div><div class="cs-text">
-Security:  Because String is immutable, these values can’t be changed.<br/>
-Multi-threading: Since Strings are immutable, they are are implicitly thread-safe.<br/>
-Caching: Since string is immutable, the hashcode will remain the same, so it can be cached without 
+Benefits<br/>
+- Security: Because String is immutable, these values can’t be changed.<br/>
+- Multi-threading: Since Strings are immutable, they are are implicitly thread-safe.<br/>
+- Caching: Since string is immutable, the hashcode will remain the same, so it can be cached without 
 worrying about the changes.<br/> 
-String Pooling is possible because String is Immutable in Java. If the string is already 
+String Pooling is possible because String is immutable in Java. If the string is already 
 present in the pool, then instead of creating a new object, old object’s reference is returned. 
 This way different String variables can refer to the same reference in the pool, thus saving a lot of heap 
-space also. 
-Hashing: Immutable strings can be hash keys.</div></div>
+space.
+  </div></div>
 </div>
 <div class="cs-chapter" data-chapter-name="Example Chapter"><div class="cs-title">Example Chapter</div>
 <div data-tags="exampletag1 exampletag2" class="cs-paragraph" id="example_chapter-example_topic">
