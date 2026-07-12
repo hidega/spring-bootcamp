@@ -1,0 +1,9 @@
+Java
+Thread priority
+thread priority
+In Java, every <span class="cs-link" data-ref="java-thread">thread</span> has a priority.
+This priority is specified as a number between 1 to 10. We can set following three priorities on a
+Thread object in Java. Default priority of a thread is NORM_PRIORITY = 5.
+The value of MIN_PRIORITY is 1 and the value of MAX_PRIORITY is 10. Scheduler in Java schedules different
+threads based on the priority of a thread. It is also known as pre-emptive scheduling. The thread with
+higher priority gets preference in execution over a thread with lower priority.

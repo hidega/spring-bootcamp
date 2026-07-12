@@ -3,6 +3,6 @@ Thread
 thread
 A thread in Java is a lightweight process that runs within another process. There are two types of threads.
 <i>native threads</i> (aka. platform threads) are managed and scheduled by the operating system,
-whereas <i>virtual threads</i> are managed and scheduled by the JVM.
+whereas <i>virtual threads</i> are managed and scheduled by the JVM. Virtual threads are available since Java 25.
 Each thread has its own method-call stack. When we start JVM, Java starts one thread.
-This thread calls the main method of the class passed in argument to java call.
+This thread calls the main method of the class passed as an argument of the <code>java</code> command.

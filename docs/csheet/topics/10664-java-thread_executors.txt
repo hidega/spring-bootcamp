@@ -1,0 +1,24 @@
+Java
+Notable Executors
+executors
+- <code>SingleThreadExecutor</code> has only one thread and is used to execute tasks in a sequential manner. If the
+thread dies due to an exception while executing the task, a new thread is created to replace the old
+thread and the subsequent tasks are executed in the new thread.<br/>
+- <code>FixedThreadPoolExecutor</code> is an executor with a fixed number of threads. The tasks submitted to this
+executor are executed by the specified number of threads and if there are more tasks than the number
+of threads, then those tasks will be added in a queue.<br/>
+- <code>CachedThreadPoolExecutor</code> is mainly used when there are many short-lived tasks to be executed.
+The number of threads of this executor pool is not bounded.<br/>
+- <code>ScheduledExecutor</code> can be used when you want to schedule your tasks, like run them at regular intervals
+or run them after a given delay.<br/>
+- <code>ScheduledThreadPoolExecutor</code> It extends <code>ThreadPoolExecutor</code> and uses a specialized delayed work queue.
+In comparison with <code>java.util.Timer</code>, <code>Timer </code>is single-threaded and kills the whole timer if a task throws an uncaught exception.
+<code>ScheduledThreadPoolExecutor</code> handles multi-threading and misbehaving tasks safely.<br/>
+- <code>Executors.newVirtualThreadPerTaskExecutor()</code> The modern executor for handling concurrent I/O-heavy workloads.
+It does not pool threads because virtual threads are so cheap. Instead, it spins up an entirely new, lightweight virtual
+thread for every single submitted task and tears it down immediately when finished. It implements <code>AutoCloseable</code>.<br/>
+- <code>Executors.newWorkStealingPool(int parallelism)</code> Each worker thread has its own double-ended queue of tasks.
+If a thread runs out of its own work, it "steals" tasks from the back of other threads' deques.
+It minimizes thread contention and context-switching overhead.<br/>
+- <code>ForkJoinPool.commonPool()</code> A globally shared, static work-stealing pool managed by the JVM.
+To be used with <code>CompletableFuture</code> without explicitly providing an executor.

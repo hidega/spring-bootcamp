@@ -1,0 +1,6 @@
+Java 
+Processes and threads
+process thread
+In Java, a <i>process</i> refers to the running of Java Virtual Machine (JVM).
+A <i>thread</i> in Java is a lightweight process that runs within another process.
+A thread lives within a JVM and it can be created or stopped by the Java application at runtime.

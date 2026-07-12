@@ -1,0 +1,10 @@
+Java
+Wait for thread termination
+thread wait termination join
+On calling the <code>Thread::join()</code> method, the current thread waits for the child thread to which it joins to finish. <pre>
+Thread myThread = new Thread(new Runnable() {
+  public void run() { }
+});
+myThread.start();
+myThread.join();
+</pre>

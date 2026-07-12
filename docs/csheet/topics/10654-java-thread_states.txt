@@ -1,0 +1,9 @@
+Java
+States of a thread
+thread state
+A Java thread can exist in one of six distinct states, defined by the <code>Thread.State</code> enum.<br/>
+NEW: A thread that has been created but not yet started via <code>thread.start()</code>.<br/>
+RUNNABLE: A thread executing in the Java virtual machine. It is either actively running or sitting in the operating system's dispatch queue waiting for CPU resources.<br/>
+BLOCKED: A thread waiting for a monitor lock to enter or re-enter a synchronized block or method.<br/>
+WAITING: A thread waiting indefinitely for another thread to perform a specific action (e.g., notifying or joining).<br/>
+TIMED_WAITING: A thread waiting for another thread to perform an action for up to a specified waiting time.<br/>

@@ -1,0 +1,8 @@
+Java 
+<code>Serializable</code> and <code>Externalizable</code>
+serializable externalizable
+<code>Serializable</code> is a marker interface to convert objects into byte streams. Needed for object persistence, caching, and transfer.
+The <code>serialVersionUID</code> attribute is an identifier that is used to serialize/deserialize an object of a <code>Serializable</code> class.
+The <code>Externalizable</code> interface is used when we want to implement custom logic to serialize/deserialize an object.
+The <code>Externalizable</code> interface extends the Serializable interface, and it has two methods,
+<code>writeExternal()</code> and <code>readExternal()</code> which are used for serialization and de-serialization.

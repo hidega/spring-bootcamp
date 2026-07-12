@@ -1,0 +1,4 @@
+Java 
+Important methods of Object
+object methods equals
+<code>clone(), equals(), finalize(), getClass(), hashCode(), notify(), notifyAll(), toString(), wait()</code>

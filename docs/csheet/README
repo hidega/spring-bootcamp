@@ -1,0 +1,39 @@
+
+Topics by prefix
+
+10. Java language, SDK
+
+11. Design Patterns
+    GoF, REST, microservices
+
+12. Database theory, JPA
+
+14. Spring
+
+15. Testframeworks
+    unittests, integration tests, mocking,
+    coverage, TDD, BDD, Gherkin
+
+16. Maven, Gradle
+
+17. Git
+
+18. CICD
+    Jenkins, GoCD, Sonar, checkstyle
+
+19. Containerization
+    docker, K8s, orchestration,
+    monitoring frameworks: Splunk, Grafana, JMeter
+
+20. Security
+    basics, keys, certs, TLS, OAuth2
+
+21. Messaging
+    JMS, Kafka, RabbitMQ
+
+22. RDBMS
+    Postgres, MySQL, Oracle, H2, MongoDB, Redis
+
+23. Cloud experience
+
+24. AI experience

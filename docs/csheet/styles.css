@@ -73,6 +73,9 @@ body, html {
 .cs-paragraph .cs-text pre {
   font-size: 0.85rem;
 }
+.cs-paragraph .cs-text code {
+  font-size: 0.9rem;
+}
 .cs-keyboard {
   height: 25%; 
   width: 100%;

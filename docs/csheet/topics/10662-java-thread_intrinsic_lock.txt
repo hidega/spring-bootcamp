@@ -1,0 +1,5 @@
+Java
+Intrinsic lock
+intrinsic lock
+An intrinsic lock can be accessed by the same thread multiple times. So an Intrinsic lock is re-entrant.
+If it is not allowed then the code that acquires a lock would have to avoid acquiring the lock that it has already acquired.

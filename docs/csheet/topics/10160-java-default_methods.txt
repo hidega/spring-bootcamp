@@ -1,0 +1,13 @@
+Java
+Default methods
+default
+Default methods in an interface provide backward compatibility feature in Java 8. <br/>
+Let say there is an interface Car that is implemented by BMW, Chevrolet and Toyota classes.
+Now a Car needs to add capability for flying. It will require change in Car interface.
+Some of the car classes that do not have flying capability may fail.
+Therefore a default implementation of flying methods is added in Car interface
+so that cars with no flying capability can continue to implement the original Car interface.<br/>
+Java prevents the traditional "Diamond Problem" of multiple class inheritance,
+but interface default methods allow a form of multiple inheritance that can cause ambiguity.
+When an implementing class inherits conflicting default methods,
+the Java compiler forces you to explicitly resolve the collision.

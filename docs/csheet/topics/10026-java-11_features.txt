@@ -1,0 +1,6 @@
+Java 
+Java 11 features
+java11 eleven
+Java 11 cleaned up core APIs (HTTP, Strings) and standardized the modular framework ecosystem.
+The important features include: local-Variable Syntax for Lambda Parameters, standard HTTP Client,
+executable single-gile source-code programs, Java Flight Recorder integrated directly into the OpenJDK JVM, expanded String and Files APIs.

@@ -1,0 +1,5 @@
+Java 
+Difference between <code>Comparable</code> and <code>Comparator</code>
+comparable comparator
+The <code>Comparable&lt;T&gt;</code> interface provides <code>int compareTo(T t)</code> method to sort elements. The <code>Comparator&lt;T&gt;</code> interface
+provides <code>int compare(T o1, T o2)</code> method to sort elements.

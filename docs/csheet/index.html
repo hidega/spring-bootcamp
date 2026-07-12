@@ -11,6 +11,33 @@
     <div class="cs-bg" id="cs-bg">
 
 <div class="cs-textbg" id="cs-textbg"><div class="cs-chapter" data-chapter-name="Java"><div class="cs-title">Java</div>
+<div data-tags="java8 eigth" class="cs-paragraph" id="java-java_8_features">
+<div class="cs-title">Java 8 features</div><div class="cs-text">
+Lambda Expression, Stream API, Date and Time API, Functional Interface, Interface Default and Static Methods,
+Optional, Base64 Encoding and Decoding, Collections API Enhancements, Concurrency Enhancements,
+Fork/Join Framework Enhancements, Spliterator, Internal Iteration, Type Annotations and Repeatable Annotations,
+JVM Parameter Changes.
+
+</div></div>
+<div data-tags="java11 eleven" class="cs-paragraph" id="java-java_11_features">
+<div class="cs-title">Java 11 features</div><div class="cs-text">
+Java 11 cleaned up core APIs (HTTP, Strings) and standardized the modular framework ecosystem.
+The important features include: local-Variable Syntax for Lambda Parameters, standard HTTP Client,
+executable single-gile source-code programs, Java Flight Recorder integrated directly into the OpenJDK JVM, expanded String and Files APIs.
+</div></div>
+<div data-tags="java17 seventeen" class="cs-paragraph" id="java-java_17_features">
+<div class="cs-title">Java 17 features</div><div class="cs-text">
+Java 17 focused heavily on data-oriented programming (Records, Sealed Classes, basic Pattern Matching) to modernize how we represent logic.
+The important features include: records, sealed classes and interfaces, pattern matching for instanceof, modern switch expressions,
+text blocks bounded by triple quotes, strong Encapsulation of JDK Internals.
+</div></div>
+<div data-tags="java25 twentyfive" class="cs-paragraph" id="java-java_25_features">
+<div class="cs-title">Java 25 features</div><div class="cs-text">
+Java 25 focused on structural concurrency and developer ergonomics (Flexible Constructors, Scoped Values, Module Imports), making the platform faster, highly concurrent, and cleaner to write
+The important features include: virtual threads, scoped values, flexible constructor bodies, more efficient memory handling in the JVM, compact source file support,
+JNI enhancements and modernization, sequenced collections, primitive types in pattern matching for switch.
+
+</div></div>
 <div data-tags="memory stack heap" class="cs-paragraph" id="java-memory">
 <div class="cs-title">Memory</div><div class="cs-text">
 <i>classloader</i> is a component of JVM used to load class files.<br/>
@@ -22,6 +49,24 @@ The string pool is a part of the heap.<br/>
 Each <span class="cs-link" data-ref="java-thread">thread</span>
 creates a private JVM stack at the time of thread creation.<br/>
 <i>native method stack</i> is reserved for all the native methods used in the application.
+</div></div>
+<div data-tags="process thread" class="cs-paragraph" id="java-processes_and_threads">
+<div class="cs-title">Processes and threads</div><div class="cs-text">
+In Java, a <i>process</i> refers to the running of Java Virtual Machine (JVM).
+A <i>thread</i> in Java is a lightweight process that runs within another process.
+A thread lives within a JVM and it can be created or stopped by the Java application at runtime.
+</div></div>
+<div data-tags="monitor" class="cs-paragraph" id="java-monitor">
+<div class="cs-title">Monitor</div><div class="cs-text">
+A monitor is a synchronization mechanism that allows threads to have:
+- mutual exclusion: only one thread can execute the method at a certain point in time, using locks,
+- cooperation: the ability to make threads wait for certain conditions to be met, using wait-set.
+Monitors provide three main features to the concurrent programming:
+- only one thread at a time has mutually exclusive access to a critical code section,
+- threads running in a monitor could be blocked while they’re waiting for certain conditions to be met,
+- one thread can notify other threads when conditions they’re waiting on are met.
+A critical section is a part of the code that accesses the same data through different threads. In Java,
+we use the synchronized keyword to mark critical sections.
 </div></div>
 <div data-tags="gc garbage collector" class="cs-paragraph" id="java-garbage_collection">
 <div class="cs-title">Garbage collection</div><div class="cs-text">
@@ -50,13 +95,11 @@ Others are used for different GC strategies: <i>soft reference,</i> <i>weak refe
 <div class="cs-title">Nested class types</div><div class="cs-text">
 Java provides four types of nested (aka inner) classes: member inner class, local inner class, 
 anonymous inner class, static nested class. </div></div>
-<div data-tags="thread" class="cs-paragraph" id="java-thread">
-<div class="cs-title">Thread</div><div class="cs-text">
-A thread in Java is a lightweight process that runs within another process. There are two types of threads.
-<i>native threads</i> (aka. platform threads) are managed and scheduled by the operating system,
-whereas <i>virtual threads</i> are managed and scheduled by the JVM.
-Each thread has its own method-call stack. When we start JVM, Java starts one thread.
-This thread calls the main method of the class passed in argument to java call.
+<div data-tags="type inference" class="cs-paragraph" id="java-type_inference">
+<div class="cs-title">Type inference</div><div class="cs-text">
+Type inference is a Java compiler's ability to look at each method invocation and corresponding
+declaration to determine the type argument (or arguments) that make the invocation applicable.
+The type inference algorithm also tries to find the most specific type that can work with all types of arguments.
 </div></div>
 <div data-tags="oop principles" class="cs-paragraph" id="java-main_oop_principles">
 <div class="cs-title">Main OOP principles</div><div class="cs-text">
@@ -121,6 +164,294 @@ present in the pool, then instead of creating a new object, old object’s refer
 This way different String variables can refer to the same reference in the pool, thus saving a lot of heap 
 space.
   </div></div>
+<div data-tags="string heap pool" class="cs-paragraph" id="java-string_creation_in_heap_and_pool">
+<div class="cs-title">String creation in heap and pool</div><div class="cs-text">
+How many objects does following code create?<br/>
+<code>String s = new String("HelloWorld");</code><br/>
+The above code creates two objects. One object is created in the string constant pool and the other (s) is created
+on the heap in non-pool area.
+  
+</div></div>
+<div data-tags="string concatenation" class="cs-paragraph" id="java-string_variable_concatenation">
+<div class="cs-title">String variable concatenation</div><div class="cs-text">
+<pre>String a = "a"; ... String b = "b"; ... String c = a + b;</pre>
+is concatenated by the compiler using the <code>StringConcatFactory</code> class since Java 9.
+<code>StringBuilder</code> was used prior to Java 9.
+</div></div>
+<div data-tags="deadlock" class="cs-paragraph" id="java-deadlock">
+<div class="cs-title">Deadlock</div><div class="cs-text">
+The minimum requirements for a Deadlock situation in a program are<br/>
+- <i>Mutual exclusion</i> There has to be a resource that can be accessed by only one thread at any point
+of time.<br/>
+- <i>Resource holding</i> One thread locks one resource and holds it, and at the same time it tries to acquire
+lock on another mutually exclusive resource.<br/>
+- <i>No preemption</i> There is no pre-emption mechanism by which resource held by a thread can be freed after
+a specific period of time.<br/>
+- <i>Circular wait</i> There can be a scenario in which two or more threads lock one resource each and they
+wait for each other’s resource to get free. This causes circular wait among threads for same set of resources.
+</div></div>
+<div data-tags="deadlock prevention" class="cs-paragraph" id="java-deadlock_prevention">
+<div class="cs-title">Deadlock prevention</div><div class="cs-text">
+At least one requirement for a deadlock has to be removed.<br/>
+- Mutual exclusion: We can use optimistic locking to prevent mutual exclusion among resources.<br/>
+- Resource holding: A thread has to release all its exclusive locks if it does not succeed in acquiring
+all exclusive locks for resources required.<br/>
+- No preemption: We can use timeout period for an exclusive lock to get free after a given amount of
+time.<br/>
+- Circular wait: We can check and ensure that circular wait does not occur, when all exclusive locks
+have been acquired by all the threads in the same sequence.<br/>
+</div></div>
+<div data-tags="livelock" class="cs-paragraph" id="java-livelock">
+<div class="cs-title">Livelock</div><div class="cs-text">
+Livelock is a scenario in which two or more threads block each other by responding to an action caused by another thread.
+In a deadlock situation two or more threads wait in one specific state.
+In a Livelock scenario, two more threads change their state in such a way that it prevents progress on their regular work.
+Consider a scenario in which two threads try to acquire two locks.
+They release a lock that they have acquired, when they cannot acquire the second lock.
+In a Livelock situation, both threads concurrently try to acquire the locks.
+Only one thread would succeed, the second thread may succeed in acquiring the second lock.
+Now both threads hold two different locks, and both threads want to have both locks.
+So they release their lock and try again from the beginning.
+This situation keeps repeating multiple times.
+</div></div>
+<div data-tags="thread startvation" class="cs-paragraph" id="java-thread_starvation">
+<div class="cs-title">Thread starvation</div><div class="cs-text">
+In a priority based scheduling, threads with lower priority get lesser time for execution than higher priority threads.
+If a lower priority thread performs a long running computation, it may happen that this thread does not
+get enough time to finish its computations just in time.
+In such a scenario, the thread with lower priority would starve. It will fall back from the threads with higher priority.
+</div></div>
+<div data-tags="race condition" class="cs-paragraph" id="java-race_condition">
+<div class="cs-title">Race condition</div><div class="cs-text">
+A race condition arises when multiple processes or threads are simultaneously trying to modify and retrieve shared data, resulting in unforeseen and unintentional outcomes.
+</div></div>
+<div data-tags="consumer producer" class="cs-paragraph" id="java-the_consumer_producer_problem">
+<div class="cs-title">The consumer/producer problem</div><div class="cs-text">
+The problem describes two processes, the producer and the consumer, who share a common, fixed-size buffer used as a queue.
+The producer's job is to generate data, put it into the buffer and start again.
+At the same time, the consumer is consuming the data (i.e. removing it from the buffer), one piece at a time.
+The problem is to make sure that the producer won't try to add data into the buffer, if it's full and that the consumer won't try to remove data from an empty buffer.<br/>
+The solution for the producer is to either go to sleep or discard data if the buffer is full.
+The next time the consumer removes an item from the buffer, it notifies the producer, who starts to fill the buffer again.
+In the same way, the consumer can go to sleep if it finds the buffer empty.
+The next time the producer puts data into the buffer, it wakes up the sleeping consumer.
+</div></div>
+<div data-tags="object methods equals" class="cs-paragraph" id="java-important_methods_of_object">
+<div class="cs-title">Important methods of Object</div><div class="cs-text">
+<code>clone(), equals(), finalize(), getClass(), hashCode(), notify(), notifyAll(), toString(), wait()</code>
+</div></div>
+<div data-tags="serializable externalizable" class="cs-paragraph" id="java-serializable_and_externalizable">
+<div class="cs-title"><code>Serializable</code> and <code>Externalizable</code></div><div class="cs-text">
+<code>Serializable</code> is a marker interface to convert objects into byte streams. Needed for object persistence, caching, and transfer.
+The <code>serialVersionUID</code> attribute is an identifier that is used to serialize/deserialize an object of a <code>Serializable</code> class.
+The <code>Externalizable</code> interface is used when we want to implement custom logic to serialize/deserialize an object.
+The <code>Externalizable</code> interface extends the Serializable interface, and it has two methods,
+<code>writeExternal()</code> and <code>readExternal()</code> which are used for serialization and de-serialization.
+</div></div>
+<div data-tags="singleton threadsafe volatile" class="cs-paragraph" id="java-singletons_and_thread_safety">
+<div class="cs-title">Singletons and thread safety</div><div class="cs-text">
+Some problems with singlteon implementations are related to reflection, cloning, serialization, thread safety.<br/>
+A thread-safe singleton class<pre>
+public class A {
+  private A() {}
+  private static volatile A instance;
+  public A getInstance() {
+    A localRef = instance;
+    if (localRef == null) {
+      synchronized (A.class) {
+        localRef = instance;
+        if(localRef == null) {
+          instance = localRef = new A();
+        }
+      }
+    }
+    return localRef;
+  }
+}</pre>
+
+A non thread-safe singleton class<pre>
+public class SingletonDoubleCheck {
+  private SingletonDoubleCheck instance = null;
+  public SingletonDoubleCheck getInstance() {
+    if (instance == null) {
+      synchronized (SingletonDoubleCheck.class) {
+        if (instance == null) {
+          instance = new SingletonDoubleCheck();
+        }
+      }
+    }
+    return instance;
+  }
+}</pre>
+We check the value of instance second time in the synchronized block.
+But the JIT compiler can rearrange the bytecode in such a way that the reference to <code>SingletonDoubleCheck</code>
+instance will be set before the execution of constructor.
+Due to this the method <code>getInstance()</code> will return an object that may not have been initialized properly.
+We can use the keyword <code>volatile</code> for instance to make this threadsafe code.
+Any variables that is marked as <code>volatile</code> will be visible to other threads only after the completion of the constructor of the object.
+</div></div>
+<div data-tags="thread" class="cs-paragraph" id="java-thread">
+<div class="cs-title">Thread</div><div class="cs-text">
+A thread in Java is a lightweight process that runs within another process. There are two types of threads.
+<i>native threads</i> (aka. platform threads) are managed and scheduled by the operating system,
+whereas <i>virtual threads</i> are managed and scheduled by the JVM. Virtual threads are available since Java 25.
+Each thread has its own method-call stack. When we start JVM, Java starts one thread.
+This thread calls the main method of the class passed as an argument of the <code>java</code> command.
+</div></div>
+<div data-tags="thread priority" class="cs-paragraph" id="java-thread_priority">
+<div class="cs-title">Thread priority</div><div class="cs-text">
+In Java, every <span class="cs-link" data-ref="java-thread">thread</span> has a priority.
+This priority is specified as a number between 1 to 10. We can set following three priorities on a
+Thread object in Java. Default priority of a thread is NORM_PRIORITY = 5.
+The value of MIN_PRIORITY is 1 and the value of MAX_PRIORITY is 10. Scheduler in Java schedules different
+threads based on the priority of a thread. It is also known as pre-emptive scheduling. The thread with
+higher priority gets preference in execution over a thread with lower priority.
+</div></div>
+<div data-tags="thread state" class="cs-paragraph" id="java-states_of_a_thread">
+<div class="cs-title">States of a thread</div><div class="cs-text">
+A Java thread can exist in one of six distinct states, defined by the <code>Thread.State</code> enum.<br/>
+NEW: A thread that has been created but not yet started via <code>thread.start()</code>.<br/>
+RUNNABLE: A thread executing in the Java virtual machine. It is either actively running or sitting in the operating system's dispatch queue waiting for CPU resources.<br/>
+BLOCKED: A thread waiting for a monitor lock to enter or re-enter a synchronized block or method.<br/>
+WAITING: A thread waiting indefinitely for another thread to perform a specific action (e.g., notifying or joining).<br/>
+TIMED_WAITING: A thread waiting for another thread to perform an action for up to a specified waiting time.<br/>
+</div></div>
+<div data-tags="thread state transitions wait notify sleep join" class="cs-paragraph" id="java-state_transitions_of_a_thread">
+<div class="cs-title">State transitions of a thread</div><div class="cs-text">
+1. <code>Object::wait()</code> and <code>Object::notify()</code> or <code>notifyAll()</code><br/>
+  The wait mechanism requires the calling thread to hold the object's monitor lock.
+  Invoking <code>object.wait()</code> drops the monitor lock and moves the thread from RUNNABLE to WAITING.
+  If a timeout is provided with <code>object.wait(long)</code>, it moves to TIMED_WAITING.
+  When another thread holds the same lock and calls <code>object.notify()</code> or <code>object.notifyAll()</code>, the waiting thread is awakened.
+  It moves to BLOCKED because it must re-acquire the monitor lock before it can resume execution.
+  Once the lock is acquired, it returns to RUNNABLE.<br/>
+
+2. <code>Thread::interrupt()</code><br/>
+  (i) If the thread is in WAITING or TIMED_WAITING: Calling <code>thread.interrupt()</code> wakes the thread up.
+  It clears the interrupt status, transitions the thread to BLOCKED to re-acquire any necessary locks,
+  and then to RUNNABLE where a <code>InterruptedException</code> is immediately thrown.
+  (ii) If the thread is BLOCKED on a monitor lock: Calling <code>interrupt()</code> sets the thread's interrupt flag,
+  but it does not break the thread out of the blocked state. The thread remains BLOCKED until it acquires the lock.
+  (iii) If the thread is RUNNABLE: Calling <code>interrupt()</code> does not interrupt physical execution.<br/>
+
+3. <code>Thread::sleep(long)</code><br/>
+  Invoking <code>Thread.sleep(millis)</code> immediately moves the current thread from RUNNABLE to TIMED_WAITING.
+  Unlike <code>Object.wait()</code>, <code>Thread.sleep()</code> does not release any monitor locks the thread currently holds.
+  When the timer expires, it returns directly to RUNNABLE.<br/>
+
+4. <code>Thread::join()</code> and <code>Thread::join(long)</code><br/>
+ Called on a target thread instance eg. <code>threadB.join()</code>, this moves the calling thread from RUNNABLE to WAITING or TIMED_WAITING if a timeout is passed.
+ When <code>threadB</code> finishes and enters the TERMINATED state, the JVM automatically signals any threads waiting on its monitor, moving the calling thread back to RUNNABLE.<br/>
+
+5. <code>LockSupport::park()</code> and <code>LockSupport::unpark(Thread)</code>
+
+</div></div>
+<div data-tags="thread create" class="cs-paragraph" id="java-thread_creation">
+<div class="cs-title">Thread creation</div><div class="cs-text">
+1. Create a platform thread<br/>
+We can extend <code>java.lang.Thread</code> class and implement the <code>run()</code> method.
+On calling <code>start()</code> method it will start a new thread.
+Another possibility is to implement the <code>java.lang.Runnable</code> interface and pass the
+implemented object to the constructor of the <code>java.lang.Thread class</code>.
+Thereafter <code>thread.start()</code> will start a new OS thread.<br/>
+2. Create a virtual thread<br/>
+We can use <code>Thread.startVirtualThread(() -> ...)</code>, or the <code>Thread.Builder</code> or <code>ThreadFactory</code> API.
+</div></div>
+<div data-tags="thread wait termination join" class="cs-paragraph" id="java-wait_for_thread_termination">
+<div class="cs-title">Wait for thread termination</div><div class="cs-text">
+On calling the <code>Thread::join()</code> method, the current thread waits for the child thread to which it joins to finish. <pre>
+Thread myThread = new Thread(new Runnable() {
+  public void run() { }
+});
+myThread.start();
+myThread.join();
+</pre>
+</div></div>
+<div data-tags="intrinsic lock" class="cs-paragraph" id="java-intrinsic_lock">
+<div class="cs-title">Intrinsic lock</div><div class="cs-text">
+An intrinsic lock can be accessed by the same thread multiple times. So an Intrinsic lock is re-entrant.
+If it is not allowed then the code that acquires a lock would have to avoid acquiring the lock that it has already acquired.
+</div></div>
+<div data-tags="executors" class="cs-paragraph" id="java-notable_executors">
+<div class="cs-title">Notable Executors</div><div class="cs-text">
+- <code>SingleThreadExecutor</code> has only one thread and is used to execute tasks in a sequential manner. If the
+thread dies due to an exception while executing the task, a new thread is created to replace the old
+thread and the subsequent tasks are executed in the new thread.<br/>
+- <code>FixedThreadPoolExecutor</code> is an executor with a fixed number of threads. The tasks submitted to this
+executor are executed by the specified number of threads and if there are more tasks than the number
+of threads, then those tasks will be added in a queue.<br/>
+- <code>CachedThreadPoolExecutor</code> is mainly used when there are many short-lived tasks to be executed.
+The number of threads of this executor pool is not bounded.<br/>
+- <code>ScheduledExecutor</code> can be used when you want to schedule your tasks, like run them at regular intervals
+or run them after a given delay.<br/>
+- <code>ScheduledThreadPoolExecutor</code> It extends <code>ThreadPoolExecutor</code> and uses a specialized delayed work queue.
+In comparison with <code>java.util.Timer</code>, <code>Timer </code>is single-threaded and kills the whole timer if a task throws an uncaught exception.
+<code>ScheduledThreadPoolExecutor</code> handles multi-threading and misbehaving tasks safely.<br/>
+- <code>Executors.newVirtualThreadPerTaskExecutor()</code> The modern executor for handling concurrent I/O-heavy workloads.
+It does not pool threads because virtual threads are so cheap. Instead, it spins up an entirely new, lightweight virtual
+thread for every single submitted task and tears it down immediately when finished. It implements <code>AutoCloseable</code>.<br/>
+- <code>Executors.newWorkStealingPool(int parallelism)</code> Each worker thread has its own double-ended queue of tasks.
+If a thread runs out of its own work, it "steals" tasks from the back of other threads' deques.
+It minimizes thread contention and context-switching overhead.<br/>
+- <code>ForkJoinPool.commonPool()</code> A globally shared, static work-stealing pool managed by the JVM.
+To be used with <code>CompletableFuture</code> without explicitly providing an executor.
+</div></div>
+<div data-tags="executorservice executor" class="cs-paragraph" id="java-executor_and_executorservice">
+<div class="cs-title"><code>Executor</code> and <code>ExecutorService</code></div><div class="cs-text">
+The <code>Executor</code> interface has a single <code>execute(Runnable)</code> method. The implementing class of this interface has to
+execute the given <code>Runnable</code> instance passed to <code>execute()</code> method at some time in the future.
+The <code>ExecutorService</code> interface extends <code>Executor</code> interface. It provides additional methods like
+<code>invokeAny(), invokeAll(), shutdown(), awaitTermination(), submit(Future)</code>. These methods can be use to shutdown
+the thread so that further requests can be rejected. Also it provides ability to invoke a collection of <code>Callable</code> tasks.
+</div></div>
+<div data-tags="fork join" class="cs-paragraph" id="java-the_fork_join_framework">
+<div class="cs-title">The fork/join framework</div><div class="cs-text">
+The <code>ForkJoinPool</code> class is in the center of fork/join framework.
+It is a thread pool that can execute instances of <code>ForkJoinTask</code>.
+The <code>ForkJoinTask</code> class provides the <code>fork()</code> and <code>join()</code> methods.
+<code>fork()</code> is used to start the asynchronous execution of a task.
+<code>join()</code> is used to await the result of the computation.
+</div></div>
+<div data-tags="threadlocal scopedvalue" class="cs-paragraph" id="java-threadlocal_and_scopedvalue_classes">
+<div class="cs-title"><code>ThreadLocal</code> and <code>ScopedValue</code> classes</div><div class="cs-text">
+A <i>thread local</i> variable is a variable restricted to a specific thread.
+It is like the thread's own copy of a variable that is not shared among multiple threads.<br/>
+The <code>ThreadLocal</code> class provides support for thread-local variables. Each thread accesses only its own local variables.
+If thread X stores a variable with value x and another thread Y stores same variable with the value y,
+then X gets x from its <code>ThreadLocal</code> instance and Y gets y from its <code>ThreadLocal</code> instance.
+Typically, <code>ThreadLocal</code>  instances are private static fields that are associated with the state of a thread.<br/>
+Since Java 25, the <code>ScopedValue</code> class is recommended to manage thread-local variables.
+
+</div></div>
+<div data-tags="yield" class="cs-paragraph" id="java-the_yield_method">
+<div class="cs-title">The <code>yield</code> method</div><div class="cs-text">
+The <code>Thread.yield</code> method is used to temporarily pause the currently executing thread and give a
+chance for other threads of the same or higher priority to execute.
+When a thread calls <code>Thread.yield</code>, it goes back to the Runnable state.
+</div></div>
+<div data-tags="remove collection" class="cs-paragraph" id="java-remove_element_from_collection">
+<div class="cs-title">Remove element from collection</div><div class="cs-text">
+To remove elements from a collection while iterating is by using <code>ListIterator.remove()</code> method. E.g.<pre>
+while(iter.hasNext()) {
+  iter.remove();
+}
+</pre>
+</div></div>
+<div data-tags="comparable comparator" class="cs-paragraph" id="java-difference_between_comparable_and_comparator">
+<div class="cs-title">Difference between <code>Comparable</code> and <code>Comparator</code></div><div class="cs-text">
+The <code>Comparable&lt;T&gt;</code> interface provides <code>int compareTo(T t)</code> method to sort elements. The <code>Comparator&lt;T&gt;</code> interface
+provides <code>int compare(T o1, T o2)</code> method to sort elements.
+</div></div>
+<div data-tags="set" class="cs-paragraph" id="java-set_implementations">
+<div class="cs-title"><code>Set</code> implementations</div><div class="cs-text">
+<code>AbstractSet, EnumSet, HashSet, LinkedHashSet, TreeSet</code>
+</div></div>
+<div data-tags="spliterator" class="cs-paragraph" id="java-spliterators">
+<div class="cs-title">Spliterators</div><div class="cs-text">
+A <code>Spliterator</code> is a special type of <code>Iterator</code> to traverse and partition the elements of a source in Java.
+A source can be a collection, an IO channel or a generator function.
+A <code>Spliterator</code> may traverse elements individually or sequentially in bulk.
+</div></div>
 </div>
 <div class="cs-chapter" data-chapter-name="Example Chapter"><div class="cs-title">Example Chapter</div>
 <div data-tags="exampletag1 exampletag2" class="cs-paragraph" id="example_chapter-example_topic">

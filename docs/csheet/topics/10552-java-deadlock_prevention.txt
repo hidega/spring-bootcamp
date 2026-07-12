@@ -1,0 +1,11 @@
+Java 
+Deadlock prevention
+deadlock prevention
+At least one requirement for a deadlock has to be removed.<br/>
+- Mutual exclusion: We can use optimistic locking to prevent mutual exclusion among resources.<br/>
+- Resource holding: A thread has to release all its exclusive locks if it does not succeed in acquiring
+all exclusive locks for resources required.<br/>
+- No preemption: We can use timeout period for an exclusive lock to get free after a given amount of
+time.<br/>
+- Circular wait: We can check and ensure that circular wait does not occur, when all exclusive locks
+have been acquired by all the threads in the same sequence.<br/>

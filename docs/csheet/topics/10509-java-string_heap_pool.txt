@@ -1,0 +1,8 @@
+Java 
+String creation in heap and pool
+string heap pool
+How many objects does following code create?<br/>
+<code>String s = new String("HelloWorld");</code><br/>
+The above code creates two objects. One object is created in the string constant pool and the other (s) is created
+on the heap in non-pool area.
+  

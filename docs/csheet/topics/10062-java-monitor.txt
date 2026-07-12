@@ -1,0 +1,12 @@
+Java
+Monitor
+monitor
+A monitor is a synchronization mechanism that allows threads to have:
+- mutual exclusion: only one thread can execute the method at a certain point in time, using locks,
+- cooperation: the ability to make threads wait for certain conditions to be met, using wait-set.
+Monitors provide three main features to the concurrent programming:
+- only one thread at a time has mutually exclusive access to a critical code section,
+- threads running in a monitor could be blocked while they’re waiting for certain conditions to be met,
+- one thread can notify other threads when conditions they’re waiting on are met.
+A critical section is a part of the code that accesses the same data through different threads. In Java,
+we use the synchronized keyword to mark critical sections.

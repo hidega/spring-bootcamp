@@ -1,0 +1,7 @@
+Java 
+Thread starvation
+thread startvation
+In a priority based scheduling, threads with lower priority get lesser time for execution than higher priority threads.
+If a lower priority thread performs a long running computation, it may happen that this thread does not
+get enough time to finish its computations just in time.
+In such a scenario, the thread with lower priority would starve. It will fall back from the threads with higher priority.

@@ -11,7 +11,7 @@ const createTopic = (s) => {
   topic.title = s.substring(first, second).trim();
   topic.tags = s.substring(second, third).trim();
   topic.text = s.substring(third);
-  topic.id = (topic.chapter + '-' + topic.title).replaceAll(' ', '_').toLowerCase();
+  topic.id = (topic.chapter + '-' + topic.title).replace(/<\/?[^>]+>/g, '').replaceAll(/[ /]/g, '_').toLowerCase();
   return topic;
 };
 

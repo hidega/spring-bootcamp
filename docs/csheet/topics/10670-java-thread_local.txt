@@ -1,0 +1,11 @@
+Java
+<code>ThreadLocal</code> and <code>ScopedValue</code> classes
+threadlocal scopedvalue
+A <i>thread local</i> variable is a variable restricted to a specific thread.
+It is like the thread's own copy of a variable that is not shared among multiple threads.<br/>
+The <code>ThreadLocal</code> class provides support for thread-local variables. Each thread accesses only its own local variables.
+If thread X stores a variable with value x and another thread Y stores same variable with the value y,
+then X gets x from its <code>ThreadLocal</code> instance and Y gets y from its <code>ThreadLocal</code> instance.
+Typically, <code>ThreadLocal</code>  instances are private static fields that are associated with the state of a thread.<br/>
+Since Java 25, the <code>ScopedValue</code> class is recommended to manage thread-local variables.
+

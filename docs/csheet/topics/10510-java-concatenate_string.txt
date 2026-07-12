@@ -1,0 +1,6 @@
+Java 
+String variable concatenation
+string concatenation
+<pre>String a = "a"; ... String b = "b"; ... String c = a + b;</pre>
+is concatenated by the compiler using the <code>StringConcatFactory</code> class since Java 9.
+<code>StringBuilder</code> was used prior to Java 9.

@@ -1,0 +1,13 @@
+Java 
+Livelock
+livelock
+Livelock is a scenario in which two or more threads block each other by responding to an action caused by another thread.
+In a deadlock situation two or more threads wait in one specific state.
+In a Livelock scenario, two more threads change their state in such a way that it prevents progress on their regular work.
+Consider a scenario in which two threads try to acquire two locks.
+They release a lock that they have acquired, when they cannot acquire the second lock.
+In a Livelock situation, both threads concurrently try to acquire the locks.
+Only one thread would succeed, the second thread may succeed in acquiring the second lock.
+Now both threads hold two different locks, and both threads want to have both locks.
+So they release their lock and try again from the beginning.
+This situation keeps repeating multiple times.

@@ -1,0 +1,6 @@
+Java
+Type inference
+type inference
+Type inference is a Java compiler's ability to look at each method invocation and corresponding
+declaration to determine the type argument (or arguments) that make the invocation applicable.
+The type inference algorithm also tries to find the most specific type that can work with all types of arguments.

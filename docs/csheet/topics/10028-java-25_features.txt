@@ -1,0 +1,7 @@
+Java 
+Java 25 features
+java25 twentyfive
+Java 25 focused on structural concurrency and developer ergonomics (Flexible Constructors, Scoped Values, Module Imports), making the platform faster, highly concurrent, and cleaner to write
+The important features include: virtual threads, scoped values, flexible constructor bodies, more efficient memory handling in the JVM, compact source file support,
+JNI enhancements and modernization, sequenced collections, primitive types in pattern matching for switch.
+

@@ -1,0 +1,12 @@
+Java 
+Deadlock
+deadlock
+The minimum requirements for a Deadlock situation in a program are<br/>
+- <i>Mutual exclusion</i> There has to be a resource that can be accessed by only one thread at any point
+of time.<br/>
+- <i>Resource holding</i> One thread locks one resource and holds it, and at the same time it tries to acquire
+lock on another mutually exclusive resource.<br/>
+- <i>No preemption</i> There is no pre-emption mechanism by which resource held by a thread can be freed after
+a specific period of time.<br/>
+- <i>Circular wait</i> There can be a scenario in which two or more threads lock one resource each and they
+wait for each other’s resource to get free. This causes circular wait among threads for same set of resources.

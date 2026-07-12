@@ -1,0 +1,30 @@
+Java
+State transitions of a thread
+thread state transitions wait notify sleep join
+1. <code>Object::wait()</code> and <code>Object::notify()</code> or <code>notifyAll()</code><br/>
+  The wait mechanism requires the calling thread to hold the object's monitor lock.
+  Invoking <code>object.wait()</code> drops the monitor lock and moves the thread from RUNNABLE to WAITING.
+  If a timeout is provided with <code>object.wait(long)</code>, it moves to TIMED_WAITING.
+  When another thread holds the same lock and calls <code>object.notify()</code> or <code>object.notifyAll()</code>, the waiting thread is awakened.
+  It moves to BLOCKED because it must re-acquire the monitor lock before it can resume execution.
+  Once the lock is acquired, it returns to RUNNABLE.<br/>
+
+2. <code>Thread::interrupt()</code><br/>
+  (i) If the thread is in WAITING or TIMED_WAITING: Calling <code>thread.interrupt()</code> wakes the thread up.
+  It clears the interrupt status, transitions the thread to BLOCKED to re-acquire any necessary locks,
+  and then to RUNNABLE where a <code>InterruptedException</code> is immediately thrown.
+  (ii) If the thread is BLOCKED on a monitor lock: Calling <code>interrupt()</code> sets the thread's interrupt flag,
+  but it does not break the thread out of the blocked state. The thread remains BLOCKED until it acquires the lock.
+  (iii) If the thread is RUNNABLE: Calling <code>interrupt()</code> does not interrupt physical execution.<br/>
+
+3. <code>Thread::sleep(long)</code><br/>
+  Invoking <code>Thread.sleep(millis)</code> immediately moves the current thread from RUNNABLE to TIMED_WAITING.
+  Unlike <code>Object.wait()</code>, <code>Thread.sleep()</code> does not release any monitor locks the thread currently holds.
+  When the timer expires, it returns directly to RUNNABLE.<br/>
+
+4. <code>Thread::join()</code> and <code>Thread::join(long)</code><br/>
+ Called on a target thread instance eg. <code>threadB.join()</code>, this moves the calling thread from RUNNABLE to WAITING or TIMED_WAITING if a timeout is passed.
+ When <code>threadB</code> finishes and enters the TERMINATED state, the JVM automatically signals any threads waiting on its monitor, moving the calling thread back to RUNNABLE.<br/>
+
+5. <code>LockSupport::park()</code> and <code>LockSupport::unpark(Thread)</code>
+

@@ -1,0 +1,6 @@
+Java
+The <code>yield</code> method
+yield
+The <code>Thread.yield</code> method is used to temporarily pause the currently executing thread and give a
+chance for other threads of the same or higher priority to execute.
+When a thread calls <code>Thread.yield</code>, it goes back to the Runnable state.

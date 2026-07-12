@@ -1,0 +1,8 @@
+Java
+<code>Executor</code> and <code>ExecutorService</code>
+executorservice executor
+The <code>Executor</code> interface has a single <code>execute(Runnable)</code> method. The implementing class of this interface has to
+execute the given <code>Runnable</code> instance passed to <code>execute()</code> method at some time in the future.
+The <code>ExecutorService</code> interface extends <code>Executor</code> interface. It provides additional methods like
+<code>invokeAny(), invokeAll(), shutdown(), awaitTermination(), submit(Future)</code>. These methods can be use to shutdown
+the thread so that further requests can be rejected. Also it provides ability to invoke a collection of <code>Callable</code> tasks.

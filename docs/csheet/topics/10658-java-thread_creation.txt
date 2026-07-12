@@ -1,0 +1,11 @@
+Java
+Thread creation
+thread create
+1. Create a platform thread<br/>
+We can extend <code>java.lang.Thread</code> class and implement the <code>run()</code> method.
+On calling <code>start()</code> method it will start a new thread.
+Another possibility is to implement the <code>java.lang.Runnable</code> interface and pass the
+implemented object to the constructor of the <code>java.lang.Thread class</code>.
+Thereafter <code>thread.start()</code> will start a new OS thread.<br/>
+2. Create a virtual thread<br/>
+We can use <code>Thread.startVirtualThread(() -> ...)</code>, or the <code>Thread.Builder</code> or <code>ThreadFactory</code> API.

@@ -1,0 +1,6 @@
+Java 
+Spliterators
+spliterator
+A <code>Spliterator</code> is a special type of <code>Iterator</code> to traverse and partition the elements of a source in Java.
+A source can be a collection, an IO channel or a generator function.
+A <code>Spliterator</code> may traverse elements individually or sequentially in bulk.

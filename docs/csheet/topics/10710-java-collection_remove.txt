@@ -1,0 +1,8 @@
+Java 
+Remove element from collection
+remove collection
+To remove elements from a collection while iterating is by using <code>ListIterator.remove()</code> method. E.g.<pre>
+while(iter.hasNext()) {
+  iter.remove();
+}
+</pre>

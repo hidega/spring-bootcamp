@@ -1,0 +1,42 @@
+Java 
+Singletons and thread safety
+singleton threadsafe volatile
+Some problems with singlteon implementations are related to reflection, cloning, serialization, thread safety.<br/>
+A thread-safe singleton class<pre>
+public class A {
+  private A() {}
+  private static volatile A instance;
+  public A getInstance() {
+    A localRef = instance;
+    if (localRef == null) {
+      synchronized (A.class) {
+        localRef = instance;
+        if(localRef == null) {
+          instance = localRef = new A();
+        }
+      }
+    }
+    return localRef;
+  }
+}</pre>
+
+A non thread-safe singleton class<pre>
+public class SingletonDoubleCheck {
+  private SingletonDoubleCheck instance = null;
+  public SingletonDoubleCheck getInstance() {
+    if (instance == null) {
+      synchronized (SingletonDoubleCheck.class) {
+        if (instance == null) {
+          instance = new SingletonDoubleCheck();
+        }
+      }
+    }
+    return instance;
+  }
+}</pre>
+We check the value of instance second time in the synchronized block.
+But the JIT compiler can rearrange the bytecode in such a way that the reference to <code>SingletonDoubleCheck</code>
+instance will be set before the execution of constructor.
+Due to this the method <code>getInstance()</code> will return an object that may not have been initialized properly.
+We can use the keyword <code>volatile</code> for instance to make this threadsafe code.
+Any variables that is marked as <code>volatile</code> will be visible to other threads only after the completion of the constructor of the object.

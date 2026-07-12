@@ -1,0 +1,6 @@
+Java 
+Java 17 features
+java17 seventeen
+Java 17 focused heavily on data-oriented programming (Records, Sealed Classes, basic Pattern Matching) to modernize how we represent logic.
+The important features include: records, sealed classes and interfaces, pattern matching for instanceof, modern switch expressions,
+text blocks bounded by triple quotes, strong Encapsulation of JDK Internals.

@@ -1,0 +1,8 @@
+Java
+The fork/join framework
+fork join
+The <code>ForkJoinPool</code> class is in the center of fork/join framework.
+It is a thread pool that can execute instances of <code>ForkJoinTask</code>.
+The <code>ForkJoinTask</code> class provides the <code>fork()</code> and <code>join()</code> methods.
+<code>fork()</code> is used to start the asynchronous execution of a task.
+<code>join()</code> is used to await the result of the computation.

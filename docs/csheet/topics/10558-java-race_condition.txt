@@ -1,0 +1,4 @@
+Java 
+Race condition
+race condition
+A race condition arises when multiple processes or threads are simultaneously trying to modify and retrieve shared data, resulting in unforeseen and unintentional outcomes.
