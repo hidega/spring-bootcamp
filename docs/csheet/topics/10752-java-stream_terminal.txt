@@ -1,0 +1,5 @@
+Java 
+Java stream terminal operations
+stream terminal operation
+<code>collect(Collector), count(), reduce(...), min(Comparator), max(Comparator), toArray(), toList(),
+findFirst(), findAny(), allMatch(), anyMatch(), forEach()</code>

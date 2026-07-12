@@ -1,0 +1,8 @@
+Java 
+Pass by value
+pass value
+Arguments in Java are always passed-by-value.
+During method invocation, a copy of each argument, whether its a value or reference, is created in stack memory which is then passed to the method.<br/>
+In case of primitives, the value is simply copied inside stack memory which is then passed to the callee method.
+In case of non-primitives, a reference in stack memory points to the actual data which resides in the heap.
+When we pass an object, the reference in stack memory is copied and the new reference is passed to the method.

@@ -1,0 +1,5 @@
+Java 
+Flat map a list of lists
+list flat map
+<pre>List&lt;List&lt;Object&gt;&gt; list = getListedList();
+List&lt;Object&gt; flat = list.stream().flatMap(List::stream).toList();</pre>

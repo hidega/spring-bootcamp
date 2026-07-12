@@ -1,0 +1,8 @@
+Java 
+<code>Cloneable</code> interface
+cloneable
+<code>Cloneable</code> is a marker interface in Java which needs to be implemented by a class to allow its objects to be cloned.
+A class implements the <code>Cloneable</code> interface to indicate to the <code>Object.clone()</code> method that
+it is legal for that method to make a field-for-field copy of instances of that class.
+If you try to clone an object which doesn’t implement the <code>Cloneable</code> interface, it will throw <code>CloneNotSupportedException</code>.
+A mapper framework is recommended instead of cloning.

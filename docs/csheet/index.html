@@ -50,6 +50,14 @@ Each <span class="cs-link" data-ref="java-thread">thread</span>
 creates a private JVM stack at the time of thread creation.<br/>
 <i>native method stack</i> is reserved for all the native methods used in the application.
 </div></div>
+<div data-tags="pass value" class="cs-paragraph" id="java-pass_by_value">
+<div class="cs-title">Pass by value</div><div class="cs-text">
+Arguments in Java are always passed-by-value.
+During method invocation, a copy of each argument, whether its a value or reference, is created in stack memory which is then passed to the method.<br/>
+In case of primitives, the value is simply copied inside stack memory which is then passed to the callee method.
+In case of non-primitives, a reference in stack memory points to the actual data which resides in the heap.
+When we pass an object, the reference in stack memory is copied and the new reference is passed to the method.
+</div></div>
 <div data-tags="process thread" class="cs-paragraph" id="java-processes_and_threads">
 <div class="cs-title">Processes and threads</div><div class="cs-text">
 In Java, a <i>process</i> refers to the running of Java Virtual Machine (JVM).
@@ -95,6 +103,19 @@ Others are used for different GC strategies: <i>soft reference,</i> <i>weak refe
 <div class="cs-title">Nested class types</div><div class="cs-text">
 Java provides four types of nested (aka inner) classes: member inner class, local inner class, 
 anonymous inner class, static nested class. </div></div>
+<div data-tags="default" class="cs-paragraph" id="java-default_methods">
+<div class="cs-title">Default methods</div><div class="cs-text">
+Default methods in an interface provide backward compatibility feature in Java 8. <br/>
+Let say there is an interface Car that is implemented by BMW, Chevrolet and Toyota classes.
+Now a Car needs to add capability for flying. It will require change in Car interface.
+Some of the car classes that do not have flying capability may fail.
+Therefore a default implementation of flying methods is added in Car interface
+so that cars with no flying capability can continue to implement the original Car interface.<br/>
+Java prevents the traditional "Diamond Problem" of multiple class inheritance,
+but default methods allow a form of multiple inheritance that can cause ambiguity.
+When an implementing class inherits conflicting default methods,
+the Java compiler forces you to explicitly resolve the collision.
+</div></div>
 <div data-tags="type inference" class="cs-paragraph" id="java-type_inference">
 <div class="cs-title">Type inference</div><div class="cs-text">
 Type inference is a Java compiler's ability to look at each method invocation and corresponding
@@ -247,6 +268,14 @@ The <code>serialVersionUID</code> attribute is an identifier that is used to ser
 The <code>Externalizable</code> interface is used when we want to implement custom logic to serialize/deserialize an object.
 The <code>Externalizable</code> interface extends the Serializable interface, and it has two methods,
 <code>writeExternal()</code> and <code>readExternal()</code> which are used for serialization and de-serialization.
+</div></div>
+<div data-tags="cloneable" class="cs-paragraph" id="java-cloneable_interface">
+<div class="cs-title"><code>Cloneable</code> interface</div><div class="cs-text">
+<code>Cloneable</code> is a marker interface in Java which needs to be implemented by a class to allow its objects to be cloned.
+A class implements the <code>Cloneable</code> interface to indicate to the <code>Object.clone()</code> method that
+it is legal for that method to make a field-for-field copy of instances of that class.
+If you try to clone an object which doesn’t implement the <code>Cloneable</code> interface, it will throw <code>CloneNotSupportedException</code>.
+A mapper framework is recommended instead of cloning.
 </div></div>
 <div data-tags="singleton threadsafe volatile" class="cs-paragraph" id="java-singletons_and_thread_safety">
 <div class="cs-title">Singletons and thread safety</div><div class="cs-text">
@@ -451,6 +480,16 @@ provides <code>int compare(T o1, T o2)</code> method to sort elements.
 A <code>Spliterator</code> is a special type of <code>Iterator</code> to traverse and partition the elements of a source in Java.
 A source can be a collection, an IO channel or a generator function.
 A <code>Spliterator</code> may traverse elements individually or sequentially in bulk.
+</div></div>
+<div data-tags="stream terminal operation" class="cs-paragraph" id="java-java_stream_terminal_operations">
+<div class="cs-title">Java stream terminal operations</div><div class="cs-text">
+<code>collect(Collector), count(), reduce(...), min(Comparator), max(Comparator), toArray(), toList(),
+findFirst(), findAny(), allMatch(), anyMatch(), forEach()</code>
+</div></div>
+<div data-tags="list flat map" class="cs-paragraph" id="java-flat_map_a_list_of_lists">
+<div class="cs-title">Flat map a list of lists</div><div class="cs-text">
+<pre>List&lt;List&lt;Object&gt;&gt; list = getListedList();
+List&lt;Object&gt; flat = list.stream().flatMap(List::stream).toList();</pre>
 </div></div>
 </div>
 <div class="cs-chapter" data-chapter-name="Example Chapter"><div class="cs-title">Example Chapter</div>

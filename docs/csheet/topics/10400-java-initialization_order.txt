@@ -1,6 +1,6 @@
 Java
 Initialization order
-initializer execution constructor order
+initializer constructor order static
 (1) static blocks of super classes<br/>
 (2) static blocks of the class<br/>
 (3) init blocks of super classes<br/>

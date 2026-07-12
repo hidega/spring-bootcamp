@@ -8,6 +8,6 @@ Some of the car classes that do not have flying capability may fail.
 Therefore a default implementation of flying methods is added in Car interface
 so that cars with no flying capability can continue to implement the original Car interface.<br/>
 Java prevents the traditional "Diamond Problem" of multiple class inheritance,
-but interface default methods allow a form of multiple inheritance that can cause ambiguity.
+but default methods allow a form of multiple inheritance that can cause ambiguity.
 When an implementing class inherits conflicting default methods,
 the Java compiler forces you to explicitly resolve the collision.
