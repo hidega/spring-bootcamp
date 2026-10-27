@@ -1,0 +1,15 @@
+Pattern
+Decorator pattern
+decorator
+Attach additional responsibilities to an object dynamically keeping the same interface. Decorators provide 
+a flexible alternative to subclassing for extending functionality.
+<pre>
+interface A { int x(int n); } 
+
+class ADecorator implements A {
+  ADecorator(A a) {
+    this.a = a; 
+  } 
+  @Override
+  int x(int n) { return a.x(n); }
+}</pre>

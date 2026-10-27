@@ -1,0 +1,11 @@
+Pattern
+Abstract factory pattern
+abstractfactory
+Provide an interface for creating families of related or dependent objects without specifying their 
+concrete classes.
+<pre>
+public interface Car { ... }
+
+public interface VehicleFactory {
+  Car createCar();
+}</pre>  

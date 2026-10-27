@@ -1,0 +1,8 @@
+Pattern
+Microservice Integration Patterns
+integration gateway aggregator chained
+<i>API Gateway pattern</i>, Gateway routing pattern<br/>
+<i>Aggregator pattern</i>: an aggregator can collect data from multiple services, apply the business logic, 
+and publish it as a REST endpoint.<br/>
+<i>Proxy pattern</i><br/>
+<i>Chained Microservices pattern</i>: A single response is produced to a client’s request by a sequence of service calls.

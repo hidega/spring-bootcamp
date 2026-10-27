@@ -1,0 +1,7 @@
+Pattern
+REST Client server principle
+rest clientserver
+This constraint essentially means that client applications and server applications must be able to evolve 
+separately without any dependency on each other. A client should know only resource URIs, and that’s 
+all. Servers and clients may also be replaced and developed independently, as long as the interface 
+between them is not altered.

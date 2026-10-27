@@ -1,0 +1,5 @@
+Pattern
+REST Cacheable principle
+cacheable rest
+In REST, caching shall be applied to resources when applicable, and then these resources must declare 
+themselves cacheable. Caching can be implemented on the server or client-side.

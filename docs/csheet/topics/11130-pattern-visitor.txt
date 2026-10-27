@@ -1,0 +1,16 @@
+Pattern
+Visitor pattern
+visitor
+Represent an operation to be performed on instances of a set of classes. Visitor lets a new operation 
+be defined without changing the classes of the elements on which it operates. 
+<pre>
+public interface FileVisitor&lt;&gt;> {
+  FileVisitResult visitFile(T file, BasicFileAttributes attrs) throws IOException;
+  ... 
+}
+
+Files.walkFileTree(Paths.get("/tmp"), new SimpleFileVisitor&lt;Path&gt;() {
+  @Override
+  public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) { ... }
+});
+</pre>

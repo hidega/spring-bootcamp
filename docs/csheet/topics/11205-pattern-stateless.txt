@@ -1,0 +1,7 @@
+Pattern
+REST Stateless principle
+rest stateless
+Make all client-server interactions stateless. The server will not store anything about the latest HTTP 
+request the client made. It will treat every request as new. No session, no history. No client context 
+shall be stored on the server between requests. The client is responsible for managing the state of 
+the application.

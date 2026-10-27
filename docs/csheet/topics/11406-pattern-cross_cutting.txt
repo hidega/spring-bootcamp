@@ -1,0 +1,11 @@
+Pattern
+Microservice Cross cutting concerns Patterns
+crosscutting discovery circuitbreaker bluegreen
+<i>Extrenal configuration pattern</i><br/> 
+<i>Service discovery pattern</i><br/>
+<i>Circuit breaker pattern</i>: The circuit breaker trips when the number of failures reaches a certain level, 
+and any subsequent calls to the breaker result in an error, a different service, or a default message 
+instead of the protected call being made.<br/>
+<i>Blue green deployment pattern</i>: Running two identical production environments: blue and green. Green 
+is the existing live instance, and blue is the new version of the application. Only one of the environments 
+is live at any time, with the live environment serving all production traffic.

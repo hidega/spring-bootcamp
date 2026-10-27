@@ -1,39 +1,67 @@
 
 Topics by prefix
 
-10. Java language, SDK
+10. Java language, SDK [2]
+    memory model, multithreading, OOP, collections, streams, IO, JVM, gc, classloading, serialization, 
+    language basics, notable command line parameters
 
-11. Design Patterns
-    GoF, REST, microservices
+11. Design Patterns [1]
+    GoF, concurrency, REST, microservices, SOLID
 
-12. Database theory, JPA
+12. Database theory [1]
+    ACID, consistency levels, CAP, table partitioning, indexing
 
-14. Spring
+14. SQL [1]
+    aggregation with group by having, joins, cascade actions, CTE, grouping function example,
+    window functions
 
-15. Testframeworks
-    unittests, integration tests, mocking,
-    coverage, TDD, BDD, Gherkin
+15. JPA [3]
+    persistence unit, transactions, ORM and multiplicities, entity and lifecycle,
+    entity manager and factory, persistence class, persistence unit and context, n plus one problem,
+    JPQL, criteria queries, attribute converter, JSON mapping, table inheritance eg. SINGLE_TABLE,
+    rollback strategy, entity listeners
 
-16. Maven, Gradle
+16. Spring [4]
+    bean lifecycle, (auto)configuration, events, annotations usage, AOP, security, MVC and security, 
+    Data, Cloud, unit tests, MVC tests, data tests, containerized tests, XML and JSON mapping, 
+    profiles, property mapping, notable annotations, OpenAPI stub generation, spring.jpa.open-in-view antipattern,
+    custom auto configuration with org.springframework.boot.autoconfigure.AutoConfiguration.imports 
 
-17. Git
+17. Testframeworks [1]
+    unittests, mocking, coverage, TDD, BDD, Gherkin
 
-18. CICD
+18. Maven, Gradle [1]
+    phases, super pom, example pom root, example pom child, notable plugins, dependency management, exclusion,
+    plugin management, archetypes, propfiles, gradle summary and comparison with maven
+
+19. Git [1]
+    checkout, clone, pull, push, rebase -i, rebase vs merge, cherry picking, fetch, stash, init, 
+    reset, tags, Git Flow branching model
+
+20. CICD [1]
     Jenkins, GoCD, Sonar, checkstyle
 
-19. Containerization
-    docker, K8s, orchestration,
-    monitoring frameworks: Splunk, Grafana, JMeter
+21. Containerization [1]
+    OCI, docker and podman, orchestration, K8s, Helm charts, Terraform 
 
-20. Security
-    basics, keys, certs, TLS, OAuth2
+22. Security [2]
+    basics, keys, certs, TLS, OAuth2, OpenID Connect
 
-21. Messaging
-    JMS, Kafka, RabbitMQ
+23. Messaging [2]
+    Kafka, JMS, RabbitMQ
 
-22. RDBMS
-    Postgres, MySQL, Oracle, H2, MongoDB, Redis
+24. RDBMS [2]
+    Postgres, MySQL, Oracle, H2, Flyway and Liquibase
 
-23. Cloud experience
+25. Non SQL [1]
+    MongoDB, Redis, Elasticsearch
 
-24. AI experience
+26. Auxiliary Java frameworks [1]
+    Lombok, Modelmapper, Mapstruct, Jackson
+
+27. Monitoring frameworks [1]
+    Splunk, Grafana, JMeter, JProfiler
+
+28. Cloud experience, AI experience
+
+[total 26]

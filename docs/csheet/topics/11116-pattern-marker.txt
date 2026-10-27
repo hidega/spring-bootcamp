@@ -1,0 +1,4 @@
+Pattern
+Marker pattern
+marker
+Empty interface to associate metadata with a class. 

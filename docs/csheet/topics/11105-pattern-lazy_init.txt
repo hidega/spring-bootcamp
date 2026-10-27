@@ -1,0 +1,5 @@
+Pattern
+Lazy initialization pattern 
+lazyinitialization
+Tactic of delaying the creation of an object, the calculation of a value, or some other expensive process 
+until the first time it is needed. 

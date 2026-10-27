@@ -1,0 +1,4 @@
+Java
+Catch exception from another thread
+catch exception
+One thread is able to catch an exception thrown by another thread by using <code>Thread.UncaughtExceptionHandler</code>.

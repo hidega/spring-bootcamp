@@ -1,0 +1,8 @@
+Pattern
+Microservice Decomposition Patterns
+decomposition bulkhead sidecar
+<i>Bulkhead pattern</i> Means isolating elements of an application into separate sections. If one fails, 
+the others can continue to function.<br/>
+<i>Decomposition by business</i> pattern<br/>
+<i>Sidecar pattern</i> components of an application are positioned in a separate processor container, which 
+provides isolation and encapsulation.

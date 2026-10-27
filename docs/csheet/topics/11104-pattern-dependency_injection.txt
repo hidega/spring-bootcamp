@@ -1,0 +1,5 @@
+Pattern
+Dependency Injection pattern
+dependencyinjection
+A class accepts the objects it requires from an injector instead of creating the objects directly.
+We do not create objects, rather declare how they are created.

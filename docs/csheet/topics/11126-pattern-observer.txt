@@ -1,0 +1,8 @@
+Pattern
+Observer pattern
+observer
+Define a one-to-many dependency between objects where a state change in one object results in all its 
+dependents being notified and updated automatically. In Observer design pattern, there is a Subject 
+that maintains the list of Observers that are waiting for any update on the Subject. Once there is an 
+update in Subject it notifies all the observers for the change. If the subject holds a strong reference 
+to observers, and observers are not de-registered in time, it can lead to memory leak.

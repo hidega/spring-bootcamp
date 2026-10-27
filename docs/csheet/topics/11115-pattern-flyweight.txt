@@ -1,0 +1,5 @@
+Pattern
+Flyweight pattern
+flyweight
+The goal is to minimize memory by sharing a large number of similar objects — you store the reusable, intrinsic state 
+once and pass the varying, extrinsic state in.

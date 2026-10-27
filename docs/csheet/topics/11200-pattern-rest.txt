@@ -1,0 +1,5 @@
+Pattern
+REST
+rest
+The principles of REST (REpresentational State Transfer) are Uniform interface principle, Client–server principle,
+Stateless principle, Cacheable principle, Layered system principle.

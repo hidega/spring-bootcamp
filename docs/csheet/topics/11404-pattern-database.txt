@@ -1,0 +1,13 @@
+Pattern
+Microservice Database Patterns
+database cqrs saga eventsourcing
+<i>Database per service pattern</i><br/>
+<i>CQRS pattern</i>: The command query responsibility segregation (CQRS) pattern can be useful if you have 
+a large application reading data from an event store. It separates read and update operations, which 
+can otherwise be difficult when processing all entities but only fetching a single one. <br/>
+<i>Saga pattern</i>: Saga is a microservices design option that allows developers to manage eCommerce transactions 
+across multiple microservices using a sequence of local transactions. Each of these is accompanied by 
+an event that will trigger the next stage. If one transaction fails, this approach can trigger a rollback 
+transaction to compensate for the failure. One of the biggest problems is how to work around transactions 
+that span multiple services. The saga pattern can help with this.<br/>
+<i>Event sourcing pattern</i>: Using a messaging system.

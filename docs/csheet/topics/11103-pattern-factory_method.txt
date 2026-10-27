@@ -1,0 +1,9 @@
+Pattern
+Factory method pattern
+factorymethod
+Define an interface for creating a single object, but let subclasses decide which class to instantiate. 
+Factory Method lets a class defer instantiation to subclasses. 
+<pre>
+public class VehicleFactory {
+  Car createCar(Object parameters) {...}
+}</pre>

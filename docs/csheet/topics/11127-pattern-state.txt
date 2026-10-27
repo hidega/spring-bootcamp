@@ -1,0 +1,7 @@
+Pattern
+State pattern
+state
+Allow an object to alter its behavior when its internal state changes. The object will appear to change 
+its class. State design pattern is used for defining the state machine for an object. Each state of 
+an object is defined in a child class of State class. When different actions are taken on an Object, 
+it can change its state.

@@ -1,0 +1,4 @@
+Pattern
+Delegation pattern
+Extend a class by composition instead of subclassing. The object handles a request by delegating to 
+a second object (the delegate). Not really for Java, but works well in Kotlin.

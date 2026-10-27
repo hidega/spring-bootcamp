@@ -1,0 +1,12 @@
+Pattern 
+GOF patterns 
+gof pattern
+
+<b>Creational patterns</b><br/>
+Abstract factory, Factory method, Builder, Dependency Injection, Lazy initialization, Object pool, Prototype, Singleton  
+<br/><br/>
+<b>Behavioural patterns</b><br/>
+Chain of responsibility, Command, Iterator, Mediator, Memento, Observer, State, Strategy, Template method, Visitor 
+<br/><br/>
+<b>Structural patterns</b><br/>
+Adapter or Wrapper, Composite, Decorator, Delegation, Facade, Flyweight, Marker, Proxy 

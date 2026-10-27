@@ -1,0 +1,13 @@
+Pattern
+SOLID
+solid
+The <i>SOLID</i> ideas are<br/>
+- The <i>Single-responsibility principle</i>: "There should never be more than one reason for a class to change."
+In other words, every class should have only one responsibility.<br/>
+- The <i>Open–closed principle</i>: "Software entities ... should be open for extension, but closed for modification."<br/>
+- The <i>Liskov substitution principle</i>: "Functions that use pointers or references to base classes must 
+be able to use objects of derived classes without knowing it."<br/>
+- The <i>Interface segregation principle</i>: "Clients should not be forced to depend upon interfaces that 
+they do not use."<br/>
+- The <i>Dependency inversion principle</i>: "Depend upon abstractions, [not] concretions." Ensures loosely 
+coupled components <br/>

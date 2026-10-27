@@ -1,0 +1,19 @@
+Database theory
+Isolation levels
+isolationlevel serializable repeatable readcomitted readuncomitted
+With a lock-based concurrency control DBMS implementation:
+<i>Serializable</i> level requires read and write locks (acquired on selected data) to be released at the end of 
+the transaction. Also range-locks must be acquired when a SELECT query uses a ranged WHERE clause, especially 
+to avoid phantom reads. A serializable execution is defined to be an execution of the operations 
+of concurrently executing SQL-transactions that produces the same effect as some serial execution of those same 
+SQL-transactions.<br/>
+<i>Repeatable reads</i>: The DBMS keeps read and write locks (acquired on selected data) until the end of the transaction. 
+However, range-locks are not managed, so phantom reads can occur. 
+Write skew is possible at this isolation level, which means that two writes are allowed to the same column(s) 
+in a table by two different writers (who have previously read the columns they are updating), resulting in 
+the column having data that is a mix of the two transactions.<br/>
+<i>Read committed</i> level guarantees that any data read is committed at the moment it is read. It restricts 
+the reader from seeing any intermediate, uncommitted, 'dirty' read. It makes no promise whatsoever that if the 
+transaction re-issues the read, it will find the same data; ie. data is free to change after it is read.<br/>
+<i>Read uncommitted</i> level allows dirty reads which means that one transaction may see not-yet-committed 
+changes made by other transactions. 

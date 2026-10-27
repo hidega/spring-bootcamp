@@ -1,0 +1,12 @@
+Database theory
+ACID
+acid atomicity consistency isolation durability
+<i>Atomicity</i> guarantees that each transaction is treated as a single "unit", which either succeeds completely 
+or fails completely.<br/>
+<i>Consistency</i> ensures that a transaction can only bring the database from one consistent state to another, 
+preserving database invariants: any data written to the database must be valid according to all defined 
+rules, including constraints, cascades, triggers, and any combination thereof.<br/>
+<i>Isolation</i> ensures that concurrent execution of transactions leaves the database in the same state 
+that would have been obtained if the transactions were executed sequentially.<br/>
+<i>Durability</i> guarantees that once a transaction has been committed, it will remain committed even in 
+the case of a system failure.

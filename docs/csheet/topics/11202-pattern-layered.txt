@@ -1,0 +1,6 @@
+Pattern
+REST Layered system principle
+rest layered
+It means that you deploy the APIs on server A, and store data on server B and authenticate requests 
+in Server C, for example. A client cannot ordinarily tell whether it is connected directly to the end 
+server or an intermediary along the way.

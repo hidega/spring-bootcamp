@@ -1,0 +1,7 @@
+Java
+Sealed classes
+sealed
+Sealed classes are a way to restrict which classes can extend or implement a given class or interface.
+Normally any class can extend a public class. With sealed, you explicitly say who is allowed to extend it. This gives you control for modeling domain concepts.
+<pre>
+public sealed class Shape permits Circle, Rectangle, Triangle { }</pre>
