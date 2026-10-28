@@ -1,0 +1,11 @@
+Test
+Profiling and loadtesting frameworks
+monitoring jprofiler jmeter gatling profiling loadtest
+<b>Profiling</b> - Why is this one method using 80% CPU / memory?<br/>
+- Java Flight Recorder [JFR] + JDK Mission Control [JMC] - Free, built into JDK.<br/>
+- JProfiler: Commercial, great UI for memory leaks, heap walk, JDBC profiling.<br/> 
+- VisualVM: Free, basic.<br/>
+<b>Load / Performance Testing</b> - Can my system handle 1000 users?<br/>
+- JMeter: Old but still king for complex enterprise scenarios. Heavy UI.<br/>
+- Gatling: Scala-based, code as config, much better performance than JMeter, great reports.
+    

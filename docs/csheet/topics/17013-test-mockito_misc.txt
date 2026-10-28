@@ -1,0 +1,11 @@
+Test
+Mockito miscellaneous
+captor injectmocks mockstatic
+<code>@Captor, ArgumentCaptor.forClass()</code><br/> 
+Inspects the exact arguments passed to a mock. If your code generates a complex object internally and passes 
+it to a dependency, a captor lets you grab that object and run assertions on its properties.<br/>
+<code>@InjectMocks</code><br/> 
+Automatically injects your mocks into the class under test. It eliminates repetitive boilerplate setup code by 
+matching data types or field names.<br/>
+<code>Mockito.mockStatic()</code><br/>
+It allows you to mock static method calls (like <code>System.currentTimeMillis()</code> or utility classes) within a scoped block.

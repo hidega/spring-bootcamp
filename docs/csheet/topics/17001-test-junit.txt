@@ -1,0 +1,8 @@
+Test
+JUnit anntotations
+junit
+<pre>
+@Test, @BeforeEach, @AfterEach, @BeforeAll, @AfterAll, @DisplayName, @Disabled, @ExtendWith(MockitoExtension.class)
+@ParameterizedTest
+@ValueSource(strings = {"", " ", "invalid-email"})
+void test(String input) {...}</pre>

@@ -1,0 +1,8 @@
+Test
+Spring Boot test technology stack
+test
+<b>JUnit 5</b> for basic unit tests<br/> 
+<b>AssertJ</b> for complex unit tests<br/> 
+<b>Mockito</b> for mocking<br/> 
+<b>JaCoCo</b> for code coverage<br/> 
+<b>spring-boot-starter-test, spring-boot-testcontainers</b> for Spring specific integration tests

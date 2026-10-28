@@ -781,7 +781,7 @@ the most recent write.<br/>
 dropped (or delayed) by the network between nodes.</div></div>
 <div data-tags="isolationlevel serializable repeatable readcomitted readuncomitted" class="cs-paragraph" id="database_theory-isolation_levels">
 <div class="cs-title">Isolation levels</div><div class="cs-text">
-With a lock-based concurrency control DBMS implementation:
+With a lock-based concurrency control DBMS implementation:<br/>
 <i>Serializable</i> level requires read and write locks (acquired on selected data) to be released at the end of 
 the transaction. Also range-locks must be acquired when a SELECT query uses a ranged WHERE clause, especially 
 to avoid phantom reads. A serializable execution is defined to be an execution of the operations 
@@ -797,6 +797,208 @@ the reader from seeing any intermediate, uncommitted, 'dirty' read. It makes no 
 transaction re-issues the read, it will find the same data; ie. data is free to change after it is read.<br/>
 <i>Read uncommitted</i> level allows dirty reads which means that one transaction may see not-yet-committed 
 changes made by other transactions. </div></div>
+</div>
+<div class="cs-chapter" data-chapter-name="SQL"><div class="cs-title">SQL</div>
+<div data-tags="aggregation groupby having" class="cs-paragraph" id="sql-aggregation_with_group_by">
+<div class="cs-title">Aggregation with GROUP BY</div><div class="cs-text">
+Find customers who spent more than 1000 in total.
+<pre>
+SELECT 
+  c.customer_id, c.name, 
+  SUM(o.total_amount) AS total_spent
+FROM customers c
+JOIN orders o ON o.customer_id = c.customer_id
+GROUP BY c.customer_id, c.name
+HAVING total_spent > 1000;</pre></div></div>
+<div data-tags="join" class="cs-paragraph" id="sql-joins">
+<div class="cs-title">Joins</div><div class="cs-text">
+<pre>
+-- LEFT JOIN: all customers, even if they have no orders
+SELECT c.name, o.order_id, o.status
+FROM customers c
+LEFT JOIN orders o ON o.customer_id = c.customer_id;
+
+-- RIGHT JOIN: all orders, even if customer is missing/deleted
+SELECT c.name, o.order_id, o.status
+FROM customers c
+RIGHT JOIN orders o ON o.customer_id = c.customer_id;
+</pre></div></div>
+<div data-tags="cascadedelete" class="cs-paragraph" id="sql-cascade_delete">
+<div class="cs-title">Cascade delete</div><div class="cs-text">
+<pre>
+-- orders.customer_id FOREIGN KEY REFERENCES customers(customer_id) ON DELETE CASCADE
+-- Deleting the customer automatically deletes all his orders
+DELETE FROM customers WHERE customer_id = 101;
+</pre></div></div>
+<div data-tags="cte" class="cs-paragraph" id="sql-cte">
+<div class="cs-title">CTE</div><div class="cs-text">
+<pre>
+WITH repeat_customers AS (
+  SELECT customer_id
+  FROM orders
+  GROUP BY customer_id
+  HAVING COUNT(*) > 1
+)
+SELECT c.name, o.order_id
+FROM customers c
+JOIN repeat_customers rc USING(customer_id)
+JOIN orders o USING(customer_id);</pre></div></div>
+<div data-tags="grouping" class="cs-paragraph" id="sql-grouping_functions">
+<div class="cs-title">Grouping functions</div><div class="cs-text">
+Get subtotals and grand total in one query. <code>GROUPING()</code> tells you if the row is a subtotal.
+<code>WITH ROLLUP</code> generates hierarchical subtotals in a single query. 
+<pre>
+SELECT region, SUM(total_amount) AS sales, GROUPING(region) AS is_grand_total
+FROM orders
+GROUP BY region WITH ROLLUP;</pre>
+</div></div>
+<div data-tags="window" class="cs-paragraph" id="sql-window_functions">
+<div class="cs-title">Window functions</div><div class="cs-text">
+Rank orders by amount within each customer, without collapsing rows. 
+<code>PARTITION BY</code> is like <code>GROUP BY</code> but for the window. 
+Row stays, you just add a calculated column.
+<pre>
+SELECT customer_id, order_id, total_amount,
+  ROW_NUMBER() OVER (PARTITION BY customer_id ORDER BY total_amount DESC) AS rank_by_amount,
+  SUM(total_amount) OVER (PARTITION BY customer_id) AS customer_total
+FROM orders;</pre></div></div>
+</div>
+<div class="cs-chapter" data-chapter-name="Test"><div class="cs-title">Test</div>
+<div data-tags="test" class="cs-paragraph" id="test-spring_boot_test_technology_stack">
+<div class="cs-title">Spring Boot test technology stack</div><div class="cs-text">
+<b>JUnit 5</b> for basic unit tests<br/> 
+<b>AssertJ</b> for complex unit tests<br/> 
+<b>Mockito</b> for mocking<br/> 
+<b>JaCoCo</b> for code coverage<br/> 
+<b>spring-boot-starter-test, spring-boot-testcontainers</b> for Spring specific integration tests
+</div></div>
+<div data-tags="junit" class="cs-paragraph" id="test-junit_anntotations">
+<div class="cs-title">JUnit anntotations</div><div class="cs-text">
+<pre>
+@Test, @BeforeEach, @AfterEach, @BeforeAll, @AfterAll, @DisplayName, @Disabled, @ExtendWith(MockitoExtension.class)
+@ParameterizedTest
+@ValueSource(strings = {"", " ", "invalid-email"})
+void test(String input) {...}</pre></div></div>
+<div data-tags="mockito mock spy" class="cs-paragraph" id="test-mockito_test_doubles">
+<div class="cs-title">Mockito test doubles</div><div class="cs-text">
+<code>@Mock</code><br/>
+The core feature of Mockito. It creates a complete fake object of a class or interface. 
+Every method returns a default value (like null, 0, or false) unless you explicitly tell it otherwise.<br/>
+<code>@Spy</code><br/>
+Creates a partial mock. It wraps around a real instance of an object. By default, it calls the actual 
+methods of the object unless you explicitly stub them out. It allows you to track interactions with real objects.</div></div>
+<div data-tags="stub matcher" class="cs-paragraph" id="test-mockito_stubs">
+<div class="cs-title">Mockito stubs</div><div class="cs-text">
+<code>when().thenReturn(), when().thenThrow(), doReturn().when()</code><br/>
+Argument Matchers (<code>any(), anyString(), eq()</code>)<br/> 
+Allow flexible stubbing.  
+Instead of hardcoding exact arguments, you can stub a method to respond to any input of a certain type.</div></div>
+<div data-tags="verify inorder" class="cs-paragraph" id="test-mockito_verification">
+<div class="cs-title">Mockito verification</div><div class="cs-text">
+<b><code>verify()</code></b>: Asserts that a specific method was called. This is crucial for verifying "side effects".<br/>
+<b>Verification Modes</b> (<code>times(), never(), atLeastOnce()</code>): Controls the exact count of invocations. 
+You can verify a method was called exactly twice (<code>times(2)</code>) or never called at all (<code>never()</code>).<br/>
+<b><code>verifyNoInteractions()</code></b>: Ensures a mock was completely ignored during the test execution.<br/>
+<b><code>InOrder verification</code></b>: Enforces the sequence of events. It ensures that Method A was executed before Method B.</div></div>
+<div data-tags="captor injectmocks mockstatic" class="cs-paragraph" id="test-mockito_miscellaneous">
+<div class="cs-title">Mockito miscellaneous</div><div class="cs-text">
+<code>@Captor, ArgumentCaptor.forClass()</code><br/> 
+Inspects the exact arguments passed to a mock. If your code generates a complex object internally and passes 
+it to a dependency, a captor lets you grab that object and run assertions on its properties.<br/>
+<code>@InjectMocks</code><br/> 
+Automatically injects your mocks into the class under test. It eliminates repetitive boilerplate setup code by 
+matching data types or field names.<br/>
+<code>Mockito.mockStatic()</code><br/>
+It allows you to mock static method calls (like <code>System.currentTimeMillis()</code> or utility classes) within a scoped block.</div></div>
+<div data-tags="integrationtest zonky" class="cs-paragraph" id="test-spring_boot_integration_test">
+<div class="cs-title">Spring Boot Integration test</div><div class="cs-text">
+<b><code>spring-boot-starter-test, spring-boot-testcontainers</code></b> Spring Boot starters<br>
+<code>@SpringBootTest</code><br>
+Is used to start the entire Spring Boot application for this test.<br>
+<code>@WebMvcTest</code><br>
+Is used to start only the Spring MVC web layer.<br>
+<code>@DataJpaTest, @AutoConfigureTestDatabase</code><br> 
+Is used to start only the JPA layer. Zonky is a framework to be used with this.</div></div>
+<div data-tags="bdd gherkin cucumber" class="cs-paragraph" id="test-bdd_tests_in_java">
+<div class="cs-title">BDD Tests in Java</div><div class="cs-text">
+Behaviour Driven Development tests.
+Gherkin is the language that non-developers can read. It's the contract between Business -> Dev -> Test.
+<pre>
+Feature: User login
+  Scenario: Successful login with valid credentials
+    Given a registered user with email "andras@test.com" and password "secret123"
+    When the user tries to login with those credentials
+    Then the user should be redirected to the dashboard
+    And a welcome message "Hello Andras" should be displayed</pre>
+
+Then the Developer writes glue code with Step Definitions
+
+Cucumber does NOT know how to execute Given a registered user.... You wire it.
+<pre>
+public class LoginSteps { 
+    @Given("a registered user with email {string} and password {string}")
+    public void aRegisteredUser(String email, String password) { ... }
+
+    @When("the user tries to login with those credentials")
+    public void login() { ... }
+
+    @Then("the user should be redirected to the dashboard")
+    public void verifyDashboard() { ... }
+}</pre></div></div>
+<div data-tags="monitoring splunk grafana micrometer observability" class="cs-paragraph" id="test-observability_and_log_analyzing_frameworks">
+<div class="cs-title">Observability and log analyzing frameworks</div><div class="cs-text">
+<b>Observability</b> - What is actually slow? Which endpoint? Which SQL query?<br/>
+- Micrometer: The de-facto metrics facade in Spring Boot. Included in every Spring Boot app via Actuator.<br/>
+- OpenTelemetry: The new standard for traces + metrics + logs.<br/>
+- Prometheus + Grafana: The standard open-source combo. Prometheus scrapes /actuator/prometheus from your 
+Spring Boot app, Grafana visualizes.<br/>
+<b>Logging & Log Aggregation</b>: Where are the errors?<br/>
+- Grafana Loki: New favorite. Much cheaper than ELK, works perfectly with Grafana. Spring Boot -> Logback -> Loki -> Grafana.<br/>
+- Splunk: Enterprise standard for log search, very expensive, great for security/compliance.</div></div>
+<div data-tags="monitoring jprofiler jmeter gatling profiling loadtest" class="cs-paragraph" id="test-profiling_and_loadtesting_frameworks">
+<div class="cs-title">Profiling and loadtesting frameworks</div><div class="cs-text">
+<b>Profiling</b> - Why is this one method using 80% CPU / memory?<br/>
+- Java Flight Recorder [JFR] + JDK Mission Control [JMC] - Free, built into JDK.<br/>
+- JProfiler: Commercial, great UI for memory leaks, heap walk, JDBC profiling.<br/> 
+- VisualVM: Free, basic.<br/>
+<b>Load / Performance Testing</b> - Can my system handle 1000 users?<br/>
+- JMeter: Old but still king for complex enterprise scenarios. Heavy UI.<br/>
+- Gatling: Scala-based, code as config, much better performance than JMeter, great reports.
+    </div></div>
+</div>
+<div class="cs-chapter" data-chapter-name="Git"><div class="cs-title">Git</div>
+<div data-tags="git init checkout clone pull push rebase merge cherrypick fetch stash reset tags" class="cs-paragraph" id="git-basic_git_commands">
+<div class="cs-title">Basic git commands</div><div class="cs-text">
+<b>git init</b> - Creates a new empty Git repository in the current folder.<br/>
+<b>git clone</b> - Downloads a full copy of an existing remote repository to your local machine.<br/>
+<b>git checkout</b> - Switches to another branch/commit or restores files <br/>
+<b>git fetch</b> - Downloads new commits/branches from remote, but doesn't apply them to your local branches.<br/>
+<b>git push</b> - Uploads your local commits to the remote repository.<br/>
+<b>git merge</b> - Merges another branch into your current branch, creating a merge commit that preserves history.<br/>
+<b>git pull</b> - fetch + merge in one step: downloads and immediately merges remote changes into your current branch.<br/>
+<b>git rebase</b> - Rewrites history by moving your branch on top of another branch, creating a linear history.<br/>
+<b>git cherry-pick</b> - Takes a single commit from another branch and applies it to your current branch.<br/>
+<b>git stash</b> - Temporarily shelves your uncommitted changes so you can work on something else clean.<br/>
+<b>git reset</b> - Moves the HEAD pointer and optionally modifies your working directory/index to undo commits/changes.<br/>
+<b>git tags</b> - git tag marks a specific commit with a readable name, usually for a release like v1.2.0.</div></div>
+<div data-tags="git merge rebase" class="cs-paragraph" id="git-merge_vs_rebase">
+<div class="cs-title">merge vs rebase</div><div class="cs-text">
+<b>git merge</b> - Merges another branch into your current branch, creating a merge commit that preserves history.<br/>
+<b>git rebase</b> - Rewrites history by moving your branch on top of another branch, creating a linear history.<br/>
+</div></div>
+<div data-tags="gitflow" class="cs-paragraph" id="git-git_flow_branching_model">
+<div class="cs-title">Git flow branching model</div><div class="cs-text">
+Git Flow is a branching model for projects with scheduled releases. It has 2 long-lived branches:<br/> 
+<code>main</code> -  only production-ready, tagged code.<br/>
+<code>develop</code> - integration branch for the next release.<br/> 
+All work happens in short-lived branches:<br/>
+<code>feature/*</code> - branched from <code>develop</code>, merged back into <code>develop</code> when done<br/>
+<code>release/*</code> - branched from <code>develop</code> when <code>develop</code> is feature-complete, only bugfixes here, 
+                         then merged into both <code>main</code> (with a version tag) and <code>develop</code><br/>
+<code>hotfix/*</code> - branched from main to fix a production bug urgently, 
+                        then merged into both <code>main</code> and <code>develop</code>
+
+</div></div>
 </div>
 <div class="cs-chapter" data-chapter-name="Example Chapter"><div class="cs-title">Example Chapter</div>
 <div data-tags="exampletag1 exampletag2" class="cs-paragraph" id="example_chapter-example_topic">

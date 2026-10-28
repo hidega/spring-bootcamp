@@ -1,0 +1,11 @@
+Test
+Observability and log analyzing frameworks
+monitoring splunk grafana micrometer observability 
+<b>Observability</b> - What is actually slow? Which endpoint? Which SQL query?<br/>
+- Micrometer: The de-facto metrics facade in Spring Boot. Included in every Spring Boot app via Actuator.<br/>
+- OpenTelemetry: The new standard for traces + metrics + logs.<br/>
+- Prometheus + Grafana: The standard open-source combo. Prometheus scrapes /actuator/prometheus from your 
+Spring Boot app, Grafana visualizes.<br/>
+<b>Logging & Log Aggregation</b>: Where are the errors?<br/>
+- Grafana Loki: New favorite. Much cheaper than ELK, works perfectly with Grafana. Spring Boot -> Logback -> Loki -> Grafana.<br/>
+- Splunk: Enterprise standard for log search, very expensive, great for security/compliance.

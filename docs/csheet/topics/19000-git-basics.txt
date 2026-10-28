@@ -1,0 +1,15 @@
+Git
+Basic git commands
+git init checkout clone pull push rebase merge cherrypick fetch stash reset tags
+<b>git init</b> - Creates a new empty Git repository in the current folder.<br/>
+<b>git clone</b> - Downloads a full copy of an existing remote repository to your local machine.<br/>
+<b>git checkout</b> - Switches to another branch/commit or restores files <br/>
+<b>git fetch</b> - Downloads new commits/branches from remote, but doesn't apply them to your local branches.<br/>
+<b>git push</b> - Uploads your local commits to the remote repository.<br/>
+<b>git merge</b> - Merges another branch into your current branch, creating a merge commit that preserves history.<br/>
+<b>git pull</b> - fetch + merge in one step: downloads and immediately merges remote changes into your current branch.<br/>
+<b>git rebase</b> - Rewrites history by moving your branch on top of another branch, creating a linear history.<br/>
+<b>git cherry-pick</b> - Takes a single commit from another branch and applies it to your current branch.<br/>
+<b>git stash</b> - Temporarily shelves your uncommitted changes so you can work on something else clean.<br/>
+<b>git reset</b> - Moves the HEAD pointer and optionally modifies your working directory/index to undo commits/changes.<br/>
+<b>git tags</b> - git tag marks a specific commit with a readable name, usually for a release like v1.2.0.

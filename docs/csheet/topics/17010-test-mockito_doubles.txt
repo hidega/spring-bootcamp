@@ -1,0 +1,9 @@
+Test
+Mockito test doubles
+mockito mock spy
+<code>@Mock</code><br/>
+The core feature of Mockito. It creates a complete fake object of a class or interface. 
+Every method returns a default value (like null, 0, or false) unless you explicitly tell it otherwise.<br/>
+<code>@Spy</code><br/>
+Creates a partial mock. It wraps around a real instance of an object. By default, it calls the actual 
+methods of the object unless you explicitly stub them out. It allows you to track interactions with real objects.

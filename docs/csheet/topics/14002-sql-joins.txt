@@ -1,0 +1,14 @@
+SQL
+Joins
+join
+<pre>
+-- LEFT JOIN: all customers, even if they have no orders
+SELECT c.name, o.order_id, o.status
+FROM customers c
+LEFT JOIN orders o ON o.customer_id = c.customer_id;
+
+-- RIGHT JOIN: all orders, even if customer is missing/deleted
+SELECT c.name, o.order_id, o.status
+FROM customers c
+RIGHT JOIN orders o ON o.customer_id = c.customer_id;
+</pre>

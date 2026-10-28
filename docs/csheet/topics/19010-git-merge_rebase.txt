@@ -1,0 +1,5 @@
+Git
+merge vs rebase
+git merge rebase
+<b>git merge</b> - Merges another branch into your current branch, creating a merge commit that preserves history.<br/>
+<b>git rebase</b> - Rewrites history by moving your branch on top of another branch, creating a linear history.<br/>

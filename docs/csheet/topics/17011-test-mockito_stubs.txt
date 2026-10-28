@@ -1,0 +1,7 @@
+Test
+Mockito stubs
+stub matcher
+<code>when().thenReturn(), when().thenThrow(), doReturn().when()</code><br/>
+Argument Matchers (<code>any(), anyString(), eq()</code>)<br/> 
+Allow flexible stubbing.  
+Instead of hardcoding exact arguments, you can stub a method to respond to any input of a certain type.

@@ -1,0 +1,9 @@
+SQL
+Grouping functions
+grouping
+Get subtotals and grand total in one query. <code>GROUPING()</code> tells you if the row is a subtotal.
+<code>WITH ROLLUP</code> generates hierarchical subtotals in a single query. 
+<pre>
+SELECT region, SUM(total_amount) AS sales, GROUPING(region) AS is_grand_total
+FROM orders
+GROUP BY region WITH ROLLUP;</pre>

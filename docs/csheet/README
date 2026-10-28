@@ -1,17 +1,17 @@
 
 Topics by prefix
 
-10. Java language, SDK [2]
+10. Java language, SDK [+]
     memory model, multithreading, OOP, collections, streams, IO, JVM, gc, classloading, serialization, 
     language basics, notable command line parameters
 
-11. Design Patterns [1]
+11. Design Patterns [+]
     GoF, concurrency, REST, microservices, SOLID
 
-12. Database theory [1]
+12. Database theory [+]
     ACID, consistency levels, CAP, table partitioning, indexing
 
-14. SQL [1]
+14. SQL [+]
     aggregation with group by having, joins, cascade actions, CTE, grouping function example,
     window functions
 
@@ -27,18 +27,19 @@ Topics by prefix
     profiles, property mapping, notable annotations, OpenAPI stub generation, spring.jpa.open-in-view antipattern,
     custom auto configuration with org.springframework.boot.autoconfigure.AutoConfiguration.imports 
 
-17. Testframeworks [1]
-    unittests, mocking, coverage, TDD, BDD, Gherkin
+17. Testframeworks [+]
+    unit tests w/ JUnit 5 + AssertJ, mocking w/ Mockito, coverage w/ JaCoCo, TDD, BDD, Gherkin, @SpringBootTest
+    Spring web MVC test, Spring Data integration test w/ zonky
 
 18. Maven, Gradle [1]
     phases, super pom, example pom root, example pom child, notable plugins, dependency management, exclusion,
-    plugin management, archetypes, propfiles, gradle summary and comparison with maven
+    plugin management, archetypes, profiles, gradle summary and comparison with maven
 
-19. Git [1]
+19. Git [+]
     checkout, clone, pull, push, rebase -i, rebase vs merge, cherry picking, fetch, stash, init, 
     reset, tags, Git Flow branching model
 
-20. CICD [1]
+20. CICD [-]
     Jenkins, GoCD, Sonar, checkstyle
 
 21. Containerization [1]
@@ -51,15 +52,15 @@ Topics by prefix
     Kafka, JMS, RabbitMQ
 
 24. RDBMS [2]
-    Postgres, MySQL, Oracle, H2, Flyway and Liquibase
+    Postgres, MySQL, Oracle, H2, Flyway, Liquibase
 
 25. Non SQL [1]
     MongoDB, Redis, Elasticsearch
 
-26. Auxiliary Java frameworks [1]
+26. Auxiliary Java frameworks [-]
     Lombok, Modelmapper, Mapstruct, Jackson
 
-27. Monitoring frameworks [1]
+27. Monitoring frameworks [+]
     Splunk, Grafana, JMeter, JProfiler
 
 28. Cloud experience, AI experience

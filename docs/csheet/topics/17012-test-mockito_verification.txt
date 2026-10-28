@@ -1,0 +1,8 @@
+Test
+Mockito verification
+verify inorder
+<b><code>verify()</code></b>: Asserts that a specific method was called. This is crucial for verifying "side effects".<br/>
+<b>Verification Modes</b> (<code>times(), never(), atLeastOnce()</code>): Controls the exact count of invocations. 
+You can verify a method was called exactly twice (<code>times(2)</code>) or never called at all (<code>never()</code>).<br/>
+<b><code>verifyNoInteractions()</code></b>: Ensures a mock was completely ignored during the test execution.<br/>
+<b><code>InOrder verification</code></b>: Enforces the sequence of events. It ensures that Method A was executed before Method B.

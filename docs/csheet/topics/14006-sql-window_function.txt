@@ -1,0 +1,11 @@
+SQL
+Window functions
+window
+Rank orders by amount within each customer, without collapsing rows. 
+<code>PARTITION BY</code> is like <code>GROUP BY</code> but for the window. 
+Row stays, you just add a calculated column.
+<pre>
+SELECT customer_id, order_id, total_amount,
+  ROW_NUMBER() OVER (PARTITION BY customer_id ORDER BY total_amount DESC) AS rank_by_amount,
+  SUM(total_amount) OVER (PARTITION BY customer_id) AS customer_total
+FROM orders;</pre>

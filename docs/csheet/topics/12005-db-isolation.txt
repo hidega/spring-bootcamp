@@ -1,7 +1,7 @@
 Database theory
 Isolation levels
 isolationlevel serializable repeatable readcomitted readuncomitted
-With a lock-based concurrency control DBMS implementation:
+With a lock-based concurrency control DBMS implementation:<br/>
 <i>Serializable</i> level requires read and write locks (acquired on selected data) to be released at the end of 
 the transaction. Also range-locks must be acquired when a SELECT query uses a ranged WHERE clause, especially 
 to avoid phantom reads. A serializable execution is defined to be an execution of the operations 

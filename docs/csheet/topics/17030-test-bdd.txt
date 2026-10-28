@@ -1,0 +1,27 @@
+Test
+BDD Tests in Java
+bdd gherkin cucumber
+Behaviour Driven Development tests.
+Gherkin is the language that non-developers can read. It's the contract between Business -> Dev -> Test.
+<pre>
+Feature: User login
+  Scenario: Successful login with valid credentials
+    Given a registered user with email "andras@test.com" and password "secret123"
+    When the user tries to login with those credentials
+    Then the user should be redirected to the dashboard
+    And a welcome message "Hello Andras" should be displayed</pre>
+
+Then the Developer writes glue code with Step Definitions
+
+Cucumber does NOT know how to execute Given a registered user.... You wire it.
+<pre>
+public class LoginSteps { 
+    @Given("a registered user with email {string} and password {string}")
+    public void aRegisteredUser(String email, String password) { ... }
+
+    @When("the user tries to login with those credentials")
+    public void login() { ... }
+
+    @Then("the user should be redirected to the dashboard")
+    public void verifyDashboard() { ... }
+}</pre>

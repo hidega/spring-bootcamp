@@ -1,0 +1,13 @@
+Git
+Git flow branching model
+gitflow
+Git Flow is a branching model for projects with scheduled releases. It has 2 long-lived branches:<br/> 
+<code>main</code> -  only production-ready, tagged code.<br/>
+<code>develop</code> - integration branch for the next release.<br/> 
+All work happens in short-lived branches:<br/>
+<code>feature/*</code> - branched from <code>develop</code>, merged back into <code>develop</code> when done<br/>
+<code>release/*</code> - branched from <code>develop</code> when <code>develop</code> is feature-complete, only bugfixes here, 
+                         then merged into both <code>main</code> (with a version tag) and <code>develop</code><br/>
+<code>hotfix/*</code> - branched from main to fix a production bug urgently, 
+                        then merged into both <code>main</code> and <code>develop</code>
+

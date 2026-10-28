@@ -1,0 +1,8 @@
+SQL
+Cascade delete
+cascadedelete
+<pre>
+-- orders.customer_id FOREIGN KEY REFERENCES customers(customer_id) ON DELETE CASCADE
+-- Deleting the customer automatically deletes all his orders
+DELETE FROM customers WHERE customer_id = 101;
+</pre>

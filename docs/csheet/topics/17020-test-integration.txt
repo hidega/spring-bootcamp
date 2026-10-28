@@ -1,0 +1,10 @@
+Test
+Spring Boot Integration test
+integrationtest zonky
+<b><code>spring-boot-starter-test, spring-boot-testcontainers</code></b> Spring Boot starters<br>
+<code>@SpringBootTest</code><br>
+Is used to start the entire Spring Boot application for this test.<br>
+<code>@WebMvcTest</code><br>
+Is used to start only the Spring MVC web layer.<br>
+<code>@DataJpaTest, @AutoConfigureTestDatabase</code><br> 
+Is used to start only the JPA layer. Zonky is a framework to be used with this.
